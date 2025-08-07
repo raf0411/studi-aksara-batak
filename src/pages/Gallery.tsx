@@ -17,8 +17,9 @@ export default function Gallery() {
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -32,8 +33,9 @@ export default function Gallery() {
       {/* Search and Filter */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex flex-col sm:flex-row gap-4 justify-between items-center"
       >
         <div className="relative flex-1 max-w-md">
@@ -53,16 +55,18 @@ export default function Gallery() {
       {/* Character Categories */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
       >
         {characterCategories.map((category, index) => (
           <motion.div
             key={category.name}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
               <CardHeader>

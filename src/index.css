@@ -4,6 +4,7 @@
 
 @layer base {
   :root {
+    /* ShadCN UI Variables */
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
     --card: 0 0% 100%;
@@ -29,6 +30,28 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+
+    /* Custom Batak Color Variables */
+    --batak-brown-light: #D6C0B3;
+    --batak-brown-dark: #493628;
+    --batak-brown-medium: #AB886D;
+    --batak-brown-darker: #5B3C24;
+    --batak-brown-muted: #956C4EBF;
+    --batak-brown-deep: #311F12;
+    --batak-brown-deep-alt: #331F11;
+    --batak-brown-warm: #372416;
+    --batak-brown-rich: #402B1B;
+    --batak-brown-soft: #AE8769;
+    --batak-cream: #E0B59C;
+    --batak-gray-light: #D9D9D9;
+    --batak-gray-warm: #E4E0E1;
+    --batak-white: #FFFFFF;
+    --batak-black: #000000;
+    --batak-black-muted: #00000080;
+    --batak-brown-light-50: #D6C0B380;
+    --batak-brown-light-75: #D6C0B3BF;
+    --batak-gradient-start: #3C2616;
+    --batak-gradient-end: #241205;
   }
 
   .dark {
@@ -63,7 +86,25 @@
   * {
     @apply border-border;
   }
+  html, body {
+    @apply m-0 p-0;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-main;
+  }
+}
+
+/* Custom Batak Utilities */
+@layer utilities {
+  .text-gradient-batak {
+    background: linear-gradient(135deg, var(--batak-gradient-start) 0%, var(--batak-gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .border-gradient-batak {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--batak-gradient-start) 0%, var(--batak-gradient-end) 100%) 1;
   }
 }

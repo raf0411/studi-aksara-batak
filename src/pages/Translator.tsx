@@ -40,8 +40,9 @@ export default function Translator() {
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -55,8 +56,9 @@ export default function Translator() {
       {/* Translation Mode Indicator */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="flex items-center justify-center gap-4 p-4 bg-blue-50 rounded-lg"
       >
         <span className="font-medium text-blue-900">
@@ -78,8 +80,9 @@ export default function Translator() {
       {/* Translator Interface */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 lg:grid-cols-2 gap-6"
       >
         {/* Input Panel */}
@@ -170,8 +173,9 @@ export default function Translator() {
       {/* Features */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         <Card>
@@ -211,8 +215,9 @@ export default function Translator() {
       {/* Usage Tips */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="bg-amber-50 border border-amber-200 rounded-lg p-6"
       >
         <h3 className="text-lg font-semibold text-amber-900 mb-3">

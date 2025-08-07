@@ -34,14 +34,15 @@ export default function About() {
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+        <h1 className="text-4xl font-bold text-batak-cream mb-4">
           About Aksara Batak
         </h1>
-        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        <p className="text-lg text-batak-cream/90 max-w-3xl mx-auto">
           Preserving and promoting the beautiful traditional script of the Batak people through 
           modern technology and education.
         </p>
@@ -50,8 +51,9 @@ export default function About() {
       {/* Mission Statement */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-8 text-white text-center"
       >
         <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
@@ -64,8 +66,9 @@ export default function About() {
       {/* Cultural Aspects */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="space-y-8"
       >
         <h2 className="text-3xl font-bold text-gray-900 text-center">
@@ -78,8 +81,9 @@ export default function About() {
               <motion.div
                 key={aspect.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <Card className="h-full text-center hover:shadow-lg transition-shadow">
                   <CardHeader>
@@ -103,8 +107,9 @@ export default function About() {
       {/* About the Script */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
         <div>
@@ -139,8 +144,9 @@ export default function About() {
       {/* Project Information */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="space-y-6"
       >
         <h2 className="text-3xl font-bold text-gray-900 text-center">
@@ -153,8 +159,9 @@ export default function About() {
                 <motion.div
                   key={info.label}
                   initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 + index * 0.1 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   className="flex justify-between items-center p-4 bg-gray-50 rounded-lg"
                 >
                   <span className="font-medium text-gray-900">{info.label}:</span>

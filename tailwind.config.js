@@ -16,7 +16,15 @@ module.exports = {
       },
     },
     extend: {
+      // Custom Font Families
+      fontFamily: {
+        'heading': ['Architects Daughter', 'cursive'],
+        'main': ['Andada Pro', 'serif'],
+        'sans': ['Andada Pro', 'ui-sans-serif', 'system-ui', 'sans-serif'], // Override default sans
+      },
+      
       colors: {
+        // ShadCN UI Colors (keeping existing)
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -50,6 +58,49 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+
+        // Custom Batak Color Palette
+        batak: {
+          // Primary browns - main brand colors
+          'brown-light': '#D6C0B3',
+          'brown-dark': '#493628',
+          'brown-medium': '#AB886D',
+          'brown-darker': '#5B3C24',
+          'brown-muted': '#956C4EBF', // 75% alpha
+          
+          // Secondary browns
+          'brown-deep': '#311F12',
+          'brown-deep-alt': '#331F11',
+          'brown-warm': '#372416',
+          'brown-rich': '#402B1B',
+          'brown-soft': '#AE8769',
+          
+          // Light tones
+          'cream': '#E0B59C',
+          'gray-light': '#D9D9D9',
+          'gray-warm': '#E4E0E1',
+          
+          // Neutral tones
+          'white': '#FFFFFF',
+          'black': '#000000',
+          'black-muted': '#00000080', // 50% alpha
+          
+          // Alpha variants
+          'brown-light-50': '#D6C0B380', // 50% alpha
+          'brown-light-75': '#D6C0B3BF', // 75% alpha
+        },
+        
+        // Gradient colors (for use with CSS gradients)
+        gradient: {
+          'start': '#3C2616',
+          'end': '#241205',
+        },
+      },
+      
+      // Custom gradients
+      backgroundImage: {
+        'batak-gradient': 'linear-gradient(to bottom, #3C2616 10%, #241205 100%)',
+        'batak-gradient-horizontal': 'linear-gradient(to left, #3C2616 10%, #241205 100%)',
       },
       borderRadius: {
         lg: "var(--radius)",

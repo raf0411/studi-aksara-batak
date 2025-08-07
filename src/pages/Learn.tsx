@@ -42,8 +42,9 @@ export default function Learn() {
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
@@ -57,8 +58,9 @@ export default function Learn() {
       {/* Progress Overview */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-6 text-white"
       >
         <h2 className="text-2xl font-bold mb-4">Your Learning Progress</h2>
@@ -81,8 +83,9 @@ export default function Learn() {
       {/* Learning Paths */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="space-y-6"
       >
         <h2 className="text-2xl font-bold text-gray-900">Learning Paths</h2>
@@ -93,8 +96,9 @@ export default function Learn() {
               <motion.div
                 key={path.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
               >
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
@@ -133,8 +137,9 @@ export default function Learn() {
       {/* Recent Lessons */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="space-y-6"
       >
         <h2 className="text-2xl font-bold text-gray-900">Continue Learning</h2>
@@ -143,8 +148,9 @@ export default function Learn() {
             <motion.div
               key={lesson.title}
               initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.7 + index * 0.1 }}
+              viewport={{ once: true, amount: 0.3 }}
             >
               <Card className="hover:shadow-md transition-shadow">
                 <CardContent className="p-6">
@@ -202,8 +208,9 @@ export default function Learn() {
       {/* Practice Section */}
       <motion.div
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
+        viewport={{ once: true, amount: 0.3 }}
         className="bg-gray-50 rounded-lg p-6"
       >
         <h3 className="text-lg font-semibold text-gray-900 mb-4">

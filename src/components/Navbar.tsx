@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Menu, X, Home, Book, GraduationCap, Languages, Info } from 'lucide-react'
@@ -14,16 +14,38 @@ const navigation = [
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 100) // Trigger sticky after 100px of scroll
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="bg-white shadow-sm border-b">
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Top">
-        <div className="flex h-16 items-center justify-between">
+    <header 
+      className={`transition-all duration-300 ease-in-out ${
+        isScrolled 
+          ? 'fixed top-4 left-0 right-0 z-40' 
+          : 'relative'
+      }`}
+    >
+      <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${
+        isScrolled 
+          ? 'bg-batak-brown-deep/95 backdrop-blur-sm shadow-lg border border-batak-brown-medium/30 rounded-full' 
+          : 'mt-4 bg-batak-brown-deep shadow-sm border border-batak-brown-medium/20 rounded-full'
+      }`}>
+        <nav className="" aria-label="Top">
+          <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-xl font-bold text-gray-900">
-              Aksara Batak
+            <Link to="/" className=" text-xl font-bold text-batak-brown-medium font-heading hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] transition-all duration-300">
+              StudiAksaraBatak.id
             </Link>
           </div>
 
@@ -37,13 +59,17 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`inline-flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors ${
+                    className={`inline-flex items-center px-3 py-2 text-sm font-medium transition-all duration-300 ${
                       isActive
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                        ? 'text-batak-brown-light bg-batak-brown-darker rounded-full'
+                        : 'text-batak-brown-light hover:text-batak-brown-light hover:[&>svg]:text-batak-brown-light hover:[&>svg]:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] rounded-md'
                     }`}
                   >
-                    <Icon className="w-4 h-4 mr-2" />
+                    <Icon className={`w-4 h-4 mr-2 transition-all duration-300 ${
+                      isActive 
+                        ? 'text-batak-brown-light' 
+                        : 'text-batak-brown-medium'
+                    }`} />
                     {item.name}
                   </Link>
                 )
@@ -84,14 +110,18 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`flex items-center px-3 py-2 text-base font-medium rounded-md transition-colors ${
+                    className={`flex items-center px-3 py-2 text-base font-medium transition-all duration-300 ${
                       isActive
-                        ? 'text-blue-600 bg-blue-50'
-                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                        ? 'text-white bg-batak-brown-darker rounded-full'
+                        : 'text-gray-700 hover:text-batak-brown-light hover:[&>svg]:text-batak-brown-light hover:[&>svg]:drop-shadow-[0_0_8px_rgba(214,192,179,0.6)] hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.6)] rounded-md'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    <Icon className="w-5 h-5 mr-3" />
+                    <Icon className={`w-5 h-5 mr-3 transition-all duration-300 ${
+                      isActive 
+                        ? 'text-white' 
+                        : ''
+                    }`} />
                     {item.name}
                   </Link>
                 )
@@ -99,7 +129,8 @@ export default function Navbar() {
             </div>
           </motion.div>
         )}
-      </nav>
+        </nav>
+      </div>
     </header>
   )
 }

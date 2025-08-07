@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ArrowRight, Book, GraduationCap, Languages } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Marquee from 'react-fast-marquee'
 
 export default function Home() {
   const features = [
@@ -26,34 +27,157 @@ export default function Home() {
     },
   ]
 
+  const aksaraCharacters = [
+    'ᯀ', 'ᯁ', 'ᯂ', 'ᯃ', 'ᯄ', 'ᯅ', 'ᯆ', 'ᯇ', 'ᯈ', 'ᯉ', 'ᯊ', 'ᯋ', 'ᯌ', 'ᯍ', 'ᯎ', 'ᯏ', 'ᯐ', 'ᯑ', 'ᯒ', 'ᯓ', 'ᯔ', 'ᯕ'
+  ]
+
+  // Prevent wheel scrolling on marquee containers
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    return false
+  }
+
+  // Also prevent wheel scrolling using native event
+  const handleWheelCapture = (e: React.WheelEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    return false
+  }
+
   return (
-    <div className="space-y-16">
+    <>
+      <style>{`
+        .marquee-container {
+          scrollbar-width: none !important;
+          -ms-overflow-style: none !important;
+          overflow-x: hidden !important;
+          overflow-y: visible !important;
+        }
+        .marquee-container::-webkit-scrollbar {
+          display: none !important;
+        }
+        .rfm-marquee {
+          scrollbar-width: none !important;
+          -ms-overflow-style: none !important;
+          overflow-x: hidden !important;
+          overflow-y: visible !important;
+        }
+        .rfm-marquee::-webkit-scrollbar {
+          display: none !important;
+        }
+        .marquee-no-scroll {
+          pointer-events: none;
+          touch-action: none;
+          overscroll-behavior: none;
+        }
+      `}</style>
+      <div className="space-y-16">
       {/* Hero Section */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
+        whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-center py-20"
+        viewport={{ once: true, amount: 0.3 }}
+        className="py-20"
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-          Welcome to Aksara Batak
-        </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-          Discover the ancient and beautiful writing system of the Batak people. 
-          Learn, explore, and preserve this cultural heritage for future generations.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button asChild size="lg">
-            <Link to="/learn">
-              Start Learning
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button variant="outline" size="lg" asChild>
-            <Link to="/gallery">
-              Explore Gallery
-            </Link>
-          </Button>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left side - Text and buttons */}
+          <div className="space-y-8">
+            <h1 className="text-4xl md:text-6xl font-heading font-bold text-batak-cream mb-6">
+              Welcome to Studi Aksara Batak!
+            </h1>
+            <p className="text-xl text-justify text-batak-cream/90 max-w-2xl">
+              Discover the ancient and beautiful writing system of the Batak people. 
+              Learn, explore, and preserve this cultural heritage for future generations.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-8">
+              <Button asChild size="lg">
+                <Link to="/learn">
+                  Start Learning
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button variant="secondary" size="lg" asChild>
+                <Link to="/gallery">
+                  Explore Gallery
+                </Link>
+              </Button>
+            </div>
+          </div>
+          
+          {/* Right side - Scrolling Aksara Batak Characters */}
+          <div className="flex justify-center lg:justify-end">
+            <div 
+              className="w-full max-w-lg h-96 flex flex-col gap-8 items-center justify-center select-none marquee-no-scroll overflow-hidden" 
+              onWheel={handleWheel}
+              onWheelCapture={handleWheelCapture}
+            >
+              {/* First row - scrolling right to left */}
+              <div 
+                className="w-full py-3 marquee-container marquee-no-scroll" 
+                onWheel={handleWheel}
+                onWheelCapture={handleWheelCapture}
+                style={{ overflowX: 'hidden', overflowY: 'visible' }}
+              >
+                <Marquee speed={50} gradient={false} pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
+                  {aksaraCharacters.map((char, index) => (
+                    <div key={`row1-${index}`} className="mx-6 select-none marquee-no-scroll" onWheel={handleWheel}>
+                      <span className="text-4xl font-bold text-batak-cream/70 font-mono select-none pointer-events-none">{char}</span>
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
+              
+              {/* Second row - scrolling left to right */}
+              <div 
+                className="w-full py-3 marquee-container marquee-no-scroll" 
+                onWheel={handleWheel}
+                onWheelCapture={handleWheelCapture}
+                style={{ overflowX: 'hidden', overflowY: 'visible' }}
+              >
+                <Marquee speed={40} gradient={false} direction="right" pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
+                  {aksaraCharacters.map((char, index) => (
+                    <div key={`row2-${index}`} className="mx-6 select-none marquee-no-scroll" onWheel={handleWheel}>
+                      <span className="text-3xl font-bold text-batak-cream/60 font-mono select-none pointer-events-none">{char}</span>
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
+                
+              {/* Third row - scrolling left to right */}
+              <div 
+                className="w-full py-3 marquee-container marquee-no-scroll" 
+                onWheel={handleWheel}
+                onWheelCapture={handleWheelCapture}
+                style={{ overflowX: 'hidden', overflowY: 'visible' }}
+              >
+                <Marquee speed={50} gradient={false} pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
+                  {aksaraCharacters.map((char, index) => (
+                    <div key={`row4-${index}`} className="mx-6 select-none marquee-no-scroll" onWheel={handleWheel}>
+                      <span className="text-4xl font-bold text-batak-cream/70 font-mono select-none pointer-events-none">{char}</span>
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
+              
+              {/* Fourth row - scrolling right to left (faster) */}
+              <div 
+                className="w-full py-3 marquee-container marquee-no-scroll" 
+                onWheel={handleWheel}
+                onWheelCapture={handleWheelCapture}
+                style={{ overflowX: 'hidden', overflowY: 'visible' }}
+              >
+                <Marquee speed={60} gradient={false} direction='right' pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
+                  {aksaraCharacters.map((char, index) => (
+                    <div key={`row3-${index}`} className="mx-4 select-none marquee-no-scroll" onWheel={handleWheel}>
+                      <span className="text-2xl font-bold text-batak-cream/50 font-mono select-none pointer-events-none">{char}</span>
+                    </div>
+                  ))}
+                </Marquee>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.section>
 
@@ -61,14 +185,15 @@ export default function Home() {
       <section className="py-16">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+          <h2 className="font-heading text-5xl font-bold text-batak-brown-light mb-4">
             Explore Aksara Batak
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-batak-brown-light/80 max-w-2xl mx-auto">
             Discover the features that will help you learn and appreciate this traditional script
           </p>
         </motion.div>
@@ -80,23 +205,28 @@ export default function Home() {
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
+                viewport={{ once: true, amount: 0.3 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow cursor-pointer group">
-                  <Link to={feature.href}>
-                    <CardHeader className="text-center">
-                      <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
-                        <Icon className="h-6 w-6 text-blue-600" />
-                      </div>
-                      <CardTitle className="text-xl">{feature.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-center text-base">
-                        {feature.description}
-                      </CardDescription>
-                    </CardContent>
-                  </Link>
+                <Card className="h-full hover:shadow-lg transition-shadow bg-batak-brown-medium border-0 flex flex-col">
+                  <CardHeader className="text-left font-heading">
+                    <div className="w-24 h-24 bg-batak-brown-muted rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <Icon className="h-12 w-12 text-batak-brown-dark" />
+                    </div>
+                    <CardTitle className="text-2xl text-batak-brown-dark">{feature.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="space-y-4 flex-1 flex flex-col">
+                    <CardDescription className="text-left text-batak-brown-dark text-base flex-1">
+                      {feature.description}
+                    </CardDescription>
+                    <Button asChild className="w-full mt-auto">
+                      <Link to={feature.href}>
+                        Explore
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </CardContent>
                 </Card>
               </motion.div>
             )
@@ -107,14 +237,15 @@ export default function Home() {
       {/* CTA Section */}
       <motion.section
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        className="bg-blue-50 rounded-2xl p-12 text-center"
+        viewport={{ once: true, amount: 0.3 }}
+        className="bg-batak-brown-muted w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] p-12 text-center"
       >
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">
+        <h2 className="text-3xl font-heading font-bold text-batak-brown-light mb-4">
           Ready to Begin Your Journey?
         </h2>
-        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-batak-brown-light mb-8 max-w-2xl mx-auto">
           Join us in preserving and learning this beautiful traditional script. 
           Start your adventure with Aksara Batak today.
         </p>
@@ -126,5 +257,6 @@ export default function Home() {
         </Button>
       </motion.section>
     </div>
+    </>
   )
 }
