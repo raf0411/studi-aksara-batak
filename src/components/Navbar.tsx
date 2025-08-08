@@ -20,7 +20,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
-      setIsScrolled(scrollTop > 100) // Trigger sticky after 100px of scroll
+      setIsScrolled(scrollTop > 100)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -37,8 +37,12 @@ export default function Navbar() {
     >
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${
         isScrolled 
-          ? 'bg-batak-brown-deep/95 backdrop-blur-sm shadow-lg border border-batak-brown-medium/30 rounded-full' 
-          : 'mt-4 bg-batak-brown-deep shadow-sm border border-batak-brown-medium/20 rounded-full'
+          ? 'bg-batak-brown-deep/95 backdrop-blur-sm shadow-lg border border-batak-brown-medium/30' 
+          : 'mt-4 bg-batak-brown-deep shadow-sm border border-batak-brown-medium/20'
+      } ${
+        mobileMenuOpen 
+          ? 'rounded-xl' 
+          : 'rounded-full'
       }`}>
         <nav className="" aria-label="Top">
           <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
