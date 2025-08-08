@@ -88,9 +88,22 @@
   }
   html, body {
     @apply m-0 p-0;
+    cursor: none; /* Hide default cursor */
   }
   body {
     @apply bg-background text-foreground font-main;
+  }
+}
+
+/* Custom Cursor Styles */
+@layer components {
+  .custom-cursor-hidden {
+    cursor: none !important;
+  }
+  
+  /* Ensure all interactive elements hide the default cursor */
+  button, a, input, textarea, [role="button"], [tabindex] {
+    cursor: none !important;
   }
 }
 

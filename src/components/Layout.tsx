@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from '@/components/Navbar'
 import ScrollToTop from '@/components/ScrollToTop'
+import CursorSettings from '@/components/CursorSettings'
 
 export default function Layout() {
   const currentYear = new Date().getFullYear()
@@ -31,6 +32,7 @@ export default function Layout() {
         </div>
       </footer>
       <ScrollToTop />
+      <CursorSettings />
     </div>
   )
 }
