@@ -30,19 +30,18 @@ export default function About() {
   ]
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-8 sm:space-y-12">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true, amount: 0.3 }}
         className="text-center"
       >
-        <h1 className="text-4xl font-bold text-batak-cream mb-4">
+        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-batak-cream mb-3 sm:mb-4 px-2">
           Tentang Aksara Batak
         </h1>
-        <p className="text-lg text-batak-cream/90 max-w-3xl mx-auto">
+        <p className="text-sm sm:text-base lg:text-lg text-batak-cream/90 max-w-3xl mx-auto px-4 leading-relaxed">
           Melestarikan dan mempromosikan aksara tradisional yang indah dari masyarakat Batak melalui 
           teknologi modern dan pendidikan.
         </p>
@@ -51,13 +50,12 @@ export default function About() {
       {/* Mission Statement */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="bg-gradient-to-r from-batak-brown-dark to-batak-brown-darker rounded-lg p-8 text-white text-center"
+        className="bg-gradient-to-r from-batak-brown-dark to-batak-brown-darker rounded-lg p-6 sm:p-8 text-white text-center"
       >
-        <h2 className="text-2xl font-bold mb-4">Misi Kami</h2>
-        <p className="text-lg text-batak-cream max-w-2xl mx-auto">
+        <h2 className="text-lg sm:text-xl lg:text-2xl font-bold mb-3 sm:mb-4">Misi Kami</h2>
+        <p className="text-sm sm:text-base lg:text-lg text-batak-cream max-w-2xl mx-auto leading-relaxed">
           Menciptakan platform yang mudah diakses dan komprehensif untuk mempelajari dan melestarikan Aksara Batak, 
           memastikan harta budaya ini terus berkembang di era digital.
         </p>
@@ -66,34 +64,32 @@ export default function About() {
       {/* Cultural Aspects */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="space-y-8"
+        className="space-y-6 sm:space-y-8"
       >
-        <h2 className="text-3xl font-bold text-batak-brown-dark text-center">
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-batak-brown-dark text-center px-2">
           Memahami Budaya
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {culturalAspects.map((aspect, index) => {
             const Icon = aspect.icon
             return (
               <motion.div
                 key={aspect.title}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
-                viewport={{ once: true, amount: 0.3 }}
               >
                 <Card className="h-full text-center hover:shadow-lg transition-shadow bg-batak-brown-light border-0">
-                  <CardHeader>
-                    <div className="w-12 h-12 bg-batak-brown-muted rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <Icon className="h-6 w-6 text-batak-brown-dark" />
+                  <CardHeader className="p-4 sm:p-6">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-batak-brown-muted rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-batak-brown-dark" />
                     </div>
-                    <CardTitle className="text-xl text-batak-brown-dark">{aspect.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl text-batak-brown-dark">{aspect.title}</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base text-batak-brown-dark/80">
+                  <CardContent className="p-4 sm:p-6 pt-0">
+                    <CardDescription className="text-sm sm:text-base text-batak-brown-dark/80 leading-relaxed">
                       {aspect.description}
                     </CardDescription>
                   </CardContent>
@@ -107,9 +103,8 @@ export default function About() {
       {/* About the Script */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.6 }}
-        viewport={{ once: true, amount: 0.3 }}
         className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
         <div>
@@ -144,9 +139,8 @@ export default function About() {
       {/* Project Information */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        viewport={{ once: true, amount: 0.3 }}
         className="space-y-6"
       >
         <h2 className="text-3xl font-bold text-batak-brown-dark text-center">
@@ -159,9 +153,8 @@ export default function About() {
                 <motion.div
                   key={info.label}
                   initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 + index * 0.1 }}
-                  viewport={{ once: true, amount: 0.3 }}
                   className="flex justify-between items-center p-4 bg-batak-brown-muted rounded-lg"
                 >
                   <span className="font-medium text-batak-brown-dark">{info.label}:</span>

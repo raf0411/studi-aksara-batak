@@ -44,14 +44,14 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className=" text-xl font-bold text-batak-brown-medium font-heading hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] transition-all duration-300">
+            <Link to="/" className="text-base sm:text-lg lg:text-xl font-bold text-batak-brown-medium font-heading hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] transition-all duration-300 truncate">
               StudiAksaraBatak.id
             </Link>
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden md:block">
-            <div className="flex space-x-8">
+          <div className="hidden lg:block">
+            <div className="flex space-x-4 xl:space-x-8">
               {navigation.map((item) => {
                 const isActive = location.pathname === item.href
                 const Icon = item.icon
@@ -59,7 +59,7 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`inline-flex items-center px-3 py-2 text-sm font-medium transition-all duration-300 ${
+                    className={`inline-flex items-center px-2 xl:px-3 py-2 text-sm font-medium transition-all duration-300 ${
                       isActive
                         ? 'text-batak-brown-light bg-batak-brown-darker rounded-full'
                         : 'text-batak-brown-light hover:text-batak-brown-light hover:[&>svg]:text-batak-brown-light hover:[&>svg]:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.8)] rounded-md'
@@ -70,7 +70,8 @@ export default function Navbar() {
                         ? 'text-batak-brown-light' 
                         : 'text-batak-brown-medium'
                     }`} />
-                    {item.name}
+                    <span className="hidden xl:inline">{item.name}</span>
+                    <span className="xl:hidden">{item.name.split(' ')[0]}</span>
                   </Link>
                 )
               })}
@@ -78,17 +79,18 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle mobile menu"
+              className="text-batak-brown-light hover:bg-batak-brown-medium/20"
             >
               {mobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
               )}
             </Button>
           </div>
@@ -100,7 +102,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gray-200 mt-2 pt-2"
+            className="lg:hidden border-t border-batak-brown-medium/30 mt-2 pt-2"
           >
             <div className="space-y-1 pb-3">
               {navigation.map((item) => {
@@ -110,17 +112,17 @@ export default function Navbar() {
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`flex items-center px-3 py-2 text-base font-medium transition-all duration-300 ${
+                    className={`flex items-center px-3 py-3 text-sm sm:text-base font-medium transition-all duration-300 rounded-lg ${
                       isActive
-                        ? 'text-white bg-batak-brown-darker rounded-full'
-                        : 'text-gray-700 hover:text-batak-brown-light hover:[&>svg]:text-batak-brown-light hover:[&>svg]:drop-shadow-[0_0_8px_rgba(214,192,179,0.6)] hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.6)] rounded-md'
+                        ? 'text-batak-brown-light bg-batak-brown-darker'
+                        : 'text-batak-brown-light hover:text-batak-brown-light hover:bg-batak-brown-medium/20 hover:[&>svg]:text-batak-brown-light hover:[&>svg]:drop-shadow-[0_0_8px_rgba(214,192,179,0.6)] hover:drop-shadow-[0_0_8px_rgba(214,192,179,0.6)]'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <Icon className={`w-5 h-5 mr-3 transition-all duration-300 ${
                       isActive 
-                        ? 'text-white' 
-                        : ''
+                        ? 'text-batak-brown-light' 
+                        : 'text-batak-brown-medium'
                     }`} />
                     {item.name}
                   </Link>

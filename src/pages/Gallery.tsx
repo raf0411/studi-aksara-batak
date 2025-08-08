@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Search, Filter, ChevronLeft, ChevronRight, X, Copy, Volume2, ChevronDown } from 'lucide-react'
@@ -16,75 +16,74 @@ export default function Gallery() {
   const [showFilterDropdown, setShowFilterDropdown] = useState(false)
 
   const allCharacters = [
-    { id: 1, character: 'ᯀ', name: 'A', category: 'Vokal', pronunciation: 'a', description: 'Vokal dasar A' },
-    { id: 2, character: 'ᯁ', name: 'Ha', category: 'Vokal', pronunciation: 'ha', description: 'Vokal Ha' },
-    { id: 3, character: 'ᯂ', name: 'Ba', category: 'Vokal', pronunciation: 'ba', description: 'Vokal Ba' },
-    { id: 4, character: 'ᯃ', name: 'Ta', category: 'Vokal', pronunciation: 'ta', description: 'Vokal Ta' },
-    { id: 5, character: 'ᯄ', name: 'Sa', category: 'Vokal', pronunciation: 'sa', description: 'Vokal Sa' },
-    { id: 6, character: 'ᯅ', name: 'Wa', category: 'Vokal', pronunciation: 'wa', description: 'Vokal Wa' },
-    { id: 7, character: 'ᯆ', name: 'Ma', category: 'Vokal', pronunciation: 'ma', description: 'Vokal Ma' },
-    { id: 8, character: 'ᯇ', name: 'Ga', category: 'Vokal', pronunciation: 'ga', description: 'Vokal Ga' },
+    // 19 Induk Aksara (Base Characters) - Each has inherent 'a' vowel
+    { id: 1, character: 'ᯀ', name: 'A', category: 'Induk Aksara', pronunciation: 'a', description: 'Aksara dasar A - vokal murni' },
+    { id: 2, character: 'ᯂ', name: 'Ha/Ka', category: 'Induk Aksara', pronunciation: 'ha', description: 'Aksara Ha atau Ka - konsonan dengan vokal a' },
+    { id: 3, character: 'ᯅ', name: 'Ba', category: 'Induk Aksara', pronunciation: 'ba', description: 'Aksara Ba - konsonan dengan vokal a' },
+    { id: 4, character: 'ᯇ', name: 'Pa', category: 'Induk Aksara', pronunciation: 'pa', description: 'Aksara Pa - konsonan dengan vokal a' },
+    { id: 5, character: 'ᯉ', name: 'Na', category: 'Induk Aksara', pronunciation: 'na', description: 'Aksara Na - konsonan dengan vokal a' },
+    { id: 6, character: 'ᯋ', name: 'Wa', category: 'Induk Aksara', pronunciation: 'wa', description: 'Aksara Wa - konsonan dengan vokal a' },
+    { id: 7, character: 'ᯎ', name: 'Ga', category: 'Induk Aksara', pronunciation: 'ga', description: 'Aksara Ga - konsonan dengan vokal a' },
+    { id: 8, character: 'ᯐ', name: 'Ja', category: 'Induk Aksara', pronunciation: 'ja', description: 'Aksara Ja - konsonan dengan vokal a' },
+    { id: 9, character: 'ᯑ', name: 'Da', category: 'Induk Aksara', pronunciation: 'da', description: 'Aksara Da - konsonan dengan vokal a' },
+    { id: 10, character: 'ᯒ', name: 'Ra', category: 'Induk Aksara', pronunciation: 'ra', description: 'Aksara Ra - konsonan dengan vokal a' },
+    { id: 11, character: 'ᯔ', name: 'Ma', category: 'Induk Aksara', pronunciation: 'ma', description: 'Aksara Ma - konsonan dengan vokal a' },
+    { id: 12, character: 'ᯕ', name: 'Ca', category: 'Induk Aksara', pronunciation: 'ca', description: 'Aksara Ca - konsonan dengan vokal a' },
+    { id: 13, character: 'ᯖ', name: 'Fa', category: 'Induk Aksara', pronunciation: 'fa', description: 'Aksara Fa - konsonan dengan vokal a' },
+    { id: 14, character: 'ᯗ', name: 'Ta', category: 'Induk Aksara', pronunciation: 'ta', description: 'Aksara Ta - konsonan dengan vokal a' },
+    { id: 15, character: 'ᯘ', name: 'Sa', category: 'Induk Aksara', pronunciation: 'sa', description: 'Aksara Sa - konsonan dengan vokal a' },
+    { id: 16, character: 'ᯛ', name: 'Ya', category: 'Induk Aksara', pronunciation: 'ya', description: 'Aksara Ya - konsonan dengan vokal a' },
+    { id: 17, character: 'ᯝ', name: 'Nga', category: 'Induk Aksara', pronunciation: 'nga', description: 'Aksara Nga - konsonan dengan vokal a' },
+    { id: 18, character: 'ᯞ', name: 'La', category: 'Induk Aksara', pronunciation: 'la', description: 'Aksara La - konsonan dengan vokal a' },
+    { id: 19, character: 'ᯠ', name: 'Nya', category: 'Induk Aksara', pronunciation: 'nya', description: 'Aksara Nya - konsonan dengan vokal a' },
     
-    { id: 9, character: 'ᯈ', name: 'Ja', category: 'Konsonan', pronunciation: 'ja', description: 'Konsonan Ja' },
-    { id: 10, character: 'ᯉ', name: 'Da', category: 'Konsonan', pronunciation: 'da', description: 'Konsonan Da' },
-    { id: 11, character: 'ᯊ', name: 'Ra', category: 'Konsonan', pronunciation: 'ra', description: 'Konsonan Ra' },
-    { id: 12, character: 'ᯋ', name: 'Na', category: 'Konsonan', pronunciation: 'na', description: 'Konsonan Na' },
-    { id: 13, character: 'ᯌ', name: 'La', category: 'Konsonan', pronunciation: 'la', description: 'Konsonan La' },
-    { id: 14, character: 'ᯍ', name: 'Pa', category: 'Konsonan', pronunciation: 'pa', description: 'Konsonan Pa' },
-    { id: 15, character: 'ᯎ', name: 'Ka', category: 'Konsonan', pronunciation: 'ka', description: 'Konsonan Ka' },
-    { id: 16, character: 'ᯏ', name: 'Ya', category: 'Konsonan', pronunciation: 'ya', description: 'Konsonan Ya' },
-    { id: 17, character: 'ᯐ', name: 'Nya', category: 'Konsonan', pronunciation: 'nya', description: 'Konsonan Nya' },
-    { id: 18, character: 'ᯑ', name: 'Ca', category: 'Konsonan', pronunciation: 'ca', description: 'Konsonan Ca' },
-    { id: 19, character: 'ᯒ', name: 'Nga', category: 'Konsonan', pronunciation: 'nga', description: 'Konsonan Nga' },
-    { id: 20, character: 'ᯓ', name: 'I', category: 'Konsonan', pronunciation: 'i', description: 'Konsonan I' },
-    { id: 21, character: 'ᯔ', name: 'U', category: 'Konsonan', pronunciation: 'u', description: 'Konsonan U' },
-    { id: 22, character: 'ᯕ', name: 'E', category: 'Konsonan', pronunciation: 'e', description: 'Konsonan E' },
-    { id: 23, character: 'ᯖ', name: 'O', category: 'Konsonan', pronunciation: 'o', description: 'Konsonan O' },
-    { id: 24, character: 'ᯗ', name: 'Kha', category: 'Konsonan', pronunciation: 'kha', description: 'Konsonan Kha' },
-    { id: 25, character: 'ᯘ', name: 'Fa', category: 'Konsonan', pronunciation: 'fa', description: 'Konsonan Fa' },
-    { id: 26, character: 'ᯙ', name: 'Jha', category: 'Konsonan', pronunciation: 'jha', description: 'Konsonan Jha' },
-    { id: 27, character: 'ᯚ', name: 'Dha', category: 'Konsonan', pronunciation: 'dha', description: 'Konsonan Dha' },
+    // Ina ni Surat (Independent Vowels)
+    { id: 20, character: 'ᯤ', name: 'I', category: 'Ina ni Surat', pronunciation: 'i', description: 'Ina ni surat I - vokal mandiri' },
+    { id: 21, character: 'ᯥ', name: 'U', category: 'Ina ni Surat', pronunciation: 'u', description: 'Ina ni surat U - vokal mandiri' },
     
-    { id: 28, character: '᯦', name: 'Tompi', category: 'Diakritik', pronunciation: 'tompi', description: 'Diakritik Tompi' },
-    { id: 29, character: '᯲', name: 'Pakpak', category: 'Diakritik', pronunciation: 'pakpak', description: 'Diakritik Pakpak' },
-    { id: 30, character: '᯳', name: 'Pangolat', category: 'Diakritik', pronunciation: 'pangolat', description: 'Diakritik Pangolat' },
-    { id: 31, character: '᯴', name: 'Panongonan', category: 'Diakritik', pronunciation: 'panongonan', description: 'Diakritik Panongonan' },
-    { id: 32, character: '᯵', name: 'Panggolat', category: 'Diakritik', pronunciation: 'panggolat', description: 'Diakritik Panggolat' },
-    { id: 33, character: '᯶', name: 'Pangkon', category: 'Diakritik', pronunciation: 'pangkon', description: 'Diakritik Pangkon' },
-    { id: 34, character: '᯷', name: 'Pangrupak', category: 'Diakritik', pronunciation: 'pangrupak', description: 'Diakritik Pangrupak' },
-    { id: 35, character: '᯸', name: 'Pangadeg', category: 'Diakritik', pronunciation: 'pangadeg', description: 'Diakritik Pangadeg' },
-    { id: 36, character: '᯹', name: 'Pangkat', category: 'Diakritik', pronunciation: 'pangkat', description: 'Diakritik Pangkat' },
-    { id: 37, character: '᯺', name: 'Pangolat Mala', category: 'Diakritik', pronunciation: 'pangolat mala', description: 'Diakritik Pangolat Mala' },
-    { id: 38, character: '᯻', name: 'Pangolat Mandonga', category: 'Diakritik', pronunciation: 'pangolat mandonga', description: 'Diakritik Pangolat Mandonga' },
-    { id: 39, character: '᯼', name: 'Pangolat Mardua', category: 'Diakritik', pronunciation: 'pangolat mardua', description: 'Diakritik Pangolat Mardua' },
+    // Anak ni Surat (Vowel Diacritics)
+    { id: 22, character: 'ᯪ', name: 'Siulu (i)', category: 'Anak ni Surat', pronunciation: 'i', description: 'Anak ni surat untuk bunyi i - diakritik vokal' },
+    { id: 23, character: 'ᯮ', name: 'Haborotan (u)', category: 'Anak ni Surat', pronunciation: 'u', description: 'Anak ni surat untuk bunyi u - diakritik vokal' },
+    { id: 24, character: 'ᯩ', name: 'Hatadingan (e)', category: 'Anak ni Surat', pronunciation: 'e', description: 'Anak ni surat untuk bunyi e - diakritik vokal' },
+    { id: 25, character: 'ᯬ', name: 'Siulu (o)', category: 'Anak ni Surat', pronunciation: 'o', description: 'Anak ni surat untuk bunyi o - diakritik vokal' },
+    { id: 26, character: 'ᯰ', name: 'Haminsaran (ng)', category: 'Anak ni Surat', pronunciation: 'ng', description: 'Anak ni surat untuk bunyi ng di akhir suku kata' },
     
-    { id: 40, character: '᭐', name: 'Nol', category: 'Angka', pronunciation: 'nol', description: 'Angka 0' },
-    { id: 41, character: '᭑', name: 'Satu', category: 'Angka', pronunciation: 'sada', description: 'Angka 1' },
-    { id: 42, character: '᭒', name: 'Dua', category: 'Angka', pronunciation: 'dua', description: 'Angka 2' },
-    { id: 43, character: '᭓', name: 'Tiga', category: 'Angka', pronunciation: 'tolu', description: 'Angka 3' },
-    { id: 44, character: '᭔', name: 'Empat', category: 'Angka', pronunciation: 'opat', description: 'Angka 4' },
-    { id: 45, character: '᭕', name: 'Lima', category: 'Angka', pronunciation: 'lima', description: 'Angka 5' },
-    { id: 46, character: '᭖', name: 'Enam', category: 'Angka', pronunciation: 'onom', description: 'Angka 6' },
-    { id: 47, character: '᭗', name: 'Tujuh', category: 'Angka', pronunciation: 'pitu', description: 'Angka 7' },
-    { id: 48, character: '᭘', name: 'Delapan', category: 'Angka', pronunciation: 'walu', description: 'Angka 8' },
-    { id: 49, character: '᭙', name: 'Sembilan', category: 'Angka', pronunciation: 'sia', description: 'Angka 9' },
+    // Pangolat dan Tanda Khusus
+    { id: 27, character: '᯲', name: 'Pangolat', category: 'Tanda Bunuh', pronunciation: 'pangolat', description: 'Tanda bunuh untuk mematikan vokal a yang melekat' },
     
-    ...Array.from({ length: 79 }, (_, i) => ({
-      id: 50 + i,
-      character: `Ch${50 + i}`,
-      name: `Karakter ${50 + i}`,
-      category: i < 20 ? 'Vokal' : i < 40 ? 'Konsonan' : i < 60 ? 'Diakritik' : 'Angka',
-      pronunciation: `char${50 + i}`,
-      description: `Karakter placeholder ${50 + i}`
-    }))
+    // Karakter Tambahan untuk Bahasa Lain
+    { id: 28, character: 'ᯧ', name: 'Kebereten', category: 'Karakter Khusus', pronunciation: 'e', description: 'Kebereten - digunakan dalam Karo dan Pakpak' },
+    
+    // Angka Batak
+    { id: 29, character: '᭐', name: 'Nol', category: 'Angka', pronunciation: 'nol', description: 'Angka 0 dalam sistem numerik Batak' },
+    { id: 30, character: '᭑', name: 'Satu', category: 'Angka', pronunciation: 'sada', description: 'Angka 1 dalam sistem numerik Batak' },
+    { id: 31, character: '᭒', name: 'Dua', category: 'Angka', pronunciation: 'dua', description: 'Angka 2 dalam sistem numerik Batak' },
+    { id: 32, character: '᭓', name: 'Tiga', category: 'Angka', pronunciation: 'tolu', description: 'Angka 3 dalam sistem numerik Batak' },
+    { id: 33, character: '᭔', name: 'Empat', category: 'Angka', pronunciation: 'opat', description: 'Angka 4 dalam sistem numerik Batak' },
+    { id: 34, character: '᭕', name: 'Lima', category: 'Angka', pronunciation: 'lima', description: 'Angka 5 dalam sistem numerik Batak' },
+    { id: 35, character: '᭖', name: 'Enam', category: 'Angka', pronunciation: 'onom', description: 'Angka 6 dalam sistem numerik Batak' },
+    { id: 36, character: '᭗', name: 'Tujuh', category: 'Angka', pronunciation: 'pitu', description: 'Angka 7 dalam sistem numerik Batak' },
+    { id: 37, character: '᭘', name: 'Delapan', category: 'Angka', pronunciation: 'walu', description: 'Angka 8 dalam sistem numerik Batak' },
+    { id: 38, character: '᭙', name: 'Sembilan', category: 'Angka', pronunciation: 'sia', description: 'Angka 9 dalam sistem numerik Batak' },
+    
+    // Contoh Kombinasi (untuk demonstrasi)
+    { id: 39, character: 'ᯅᯪ', name: 'Bi', category: 'Contoh Kombinasi', pronunciation: 'bi', description: 'Contoh: Ba + anak ni surat i = Bi' },
+    { id: 40, character: 'ᯅᯮ', name: 'Bu', category: 'Contoh Kombinasi', pronunciation: 'bu', description: 'Contoh: Ba + anak ni surat u = Bu' },
+    { id: 41, character: 'ᯅᯩ', name: 'Be', category: 'Contoh Kombinasi', pronunciation: 'be', description: 'Contoh: Ba + anak ni surat e = Be' },
+    { id: 42, character: 'ᯅᯬ', name: 'Bo', category: 'Contoh Kombinasi', pronunciation: 'bo', description: 'Contoh: Ba + anak ni surat o = Bo' },
+    { id: 43, character: 'ᯞᯇ᯲', name: 'Lap', category: 'Contoh Kombinasi', pronunciation: 'lap', description: 'Contoh: La + Pa + Pangolat = Lap (dengan tanda bunuh)' },
+    { id: 44, character: 'ᯎᯉ', name: 'Gana', category: 'Contoh Kombinasi', pronunciation: 'gana', description: 'Contoh: Ga + Na = Gana' },
   ]
 
   const characterCategories = [
-    { name: 'Semua', count: allCharacters.length, description: 'Semua jenis karakter' },
-    { name: 'Vokal', count: allCharacters.filter(c => c.category === 'Vokal').length, description: 'Karakter vokal dasar' },
-    { name: 'Konsonan', count: allCharacters.filter(c => c.category === 'Konsonan').length, description: 'Karakter konsonan' },
-    { name: 'Diakritik', count: allCharacters.filter(c => c.category === 'Diakritik').length, description: 'Tanda aksen dan pengubah' },
-    { name: 'Angka', count: allCharacters.filter(c => c.category === 'Angka').length, description: 'Karakter numerik' },
+    { name: 'Semua', count: allCharacters.length, description: 'Semua jenis karakter Aksara Batak' },
+    { name: 'Induk Aksara', count: allCharacters.filter(c => c.category === 'Induk Aksara').length, description: '19 aksara dasar Batak Toba (masing-masing memiliki vokal a melekat)' },
+    { name: 'Ina ni Surat', count: allCharacters.filter(c => c.category === 'Ina ni Surat').length, description: 'Vokal mandiri yang berdiri sendiri' },
+    { name: 'Anak ni Surat', count: allCharacters.filter(c => c.category === 'Anak ni Surat').length, description: 'Diakritik vokal untuk mengubah bunyi a pada Induk Aksara' },
+    { name: 'Tanda Bunuh', count: allCharacters.filter(c => c.category === 'Tanda Bunuh').length, description: 'Pangolat untuk mematikan vokal a yang melekat' },
+    { name: 'Karakter Khusus', count: allCharacters.filter(c => c.category === 'Karakter Khusus').length, description: 'Karakter tambahan untuk bahasa Batak lainnya' },
+    { name: 'Angka', count: allCharacters.filter(c => c.category === 'Angka').length, description: 'Sistem numerik tradisional Batak' },
+    { name: 'Contoh Kombinasi', count: allCharacters.filter(c => c.category === 'Contoh Kombinasi').length, description: 'Contoh penggabungan aksara untuk membentuk suku kata' },
   ]
 
   const filteredCharacters = allCharacters.filter(char => {
@@ -143,12 +142,10 @@ export default function Gallery() {
 
   const handlePronounce = (pronunciation: string) => {
     if ('speechSynthesis' in window) {
-      // Cancel any ongoing speech
       speechSynthesis.cancel()
       
       const utterance = new SpeechSynthesisUtterance(pronunciation)
       
-      // Try to find Indonesian voice, fallback to English or default
       const voices = speechSynthesis.getVoices()
       const indonesianVoice = voices.find(voice => 
         voice.lang.includes('id') || voice.lang.includes('ID')
@@ -163,15 +160,13 @@ export default function Gallery() {
         utterance.voice = englishVoice
       }
       
-      // Adjust speech parameters for better clarity
-      utterance.rate = 0.7 // Slower speech for better understanding
+      utterance.rate = 0.7
       utterance.pitch = 1.0
       utterance.volume = 0.8
       
       speechSynthesis.speak(utterance)
     } else {
       console.warn('Speech synthesis not supported in this browser')
-      // You could show a toast notification here
     }
   }
 
@@ -213,10 +208,8 @@ export default function Gallery() {
     }
   }, [showFilterDropdown])
 
-  // Load speech synthesis voices
   useEffect(() => {
     if ('speechSynthesis' in window) {
-      // Load voices - some browsers need this
       const loadVoices = () => {
         speechSynthesis.getVoices()
       }
@@ -235,53 +228,51 @@ export default function Gallery() {
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true, amount: 0.3 }}
-          className="text-center flex flex-col items-center space-y-6"
+          className="text-center flex flex-col items-center space-y-4 sm:space-y-6"
         >
-          <h1 className="text-6xl font-heading text-batak-brown-light mb-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-heading text-batak-brown-light mb-2 sm:mb-4 px-2">
             Galeri Karakter
           </h1>
-          <p className="text-lg text-batak-brown-light max-w-2xl mx-auto">
-            Jelajahi koleksi lengkap karakter Aksara Batak, diorganisir berdasarkan kategori untuk pembelajaran dan referensi yang mudah.
+          <p className="text-sm sm:text-base lg:text-lg text-batak-brown-light max-w-2xl mx-auto px-4 leading-relaxed">
+            Jelajahi koleksi lengkap karakter Aksara Batak Toba, diorganisir berdasarkan kategori untuk pembelajaran dan referensi yang mudah.
           </p>
         </motion.div>
 
       {/* Search and Filter */}
       <motion.div
         initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col sm:flex-row gap-4 justify-between items-center"
+        className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-between items-stretch sm:items-center"
       >
-        <div className="relative flex-1 max-w-md">
-          <Search className="absolute left-8 top-1/2 transform -translate-y-1/2 text-batak-brown-light/75 h-4 w-4" />
+        <div className="relative flex-1 max-w-full sm:max-w-md order-2 sm:order-1">
+          <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-batak-brown-light/75 h-4 w-4" />
           <input
             type="text"
             placeholder="Cari karakter..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-16 pr-4 placeholder-batak-brown-light/75 py-2 border bg-batak-brown-darker text-batak-brown-light border-batak-brown-light rounded-full focus:border-batak-brown-medium focus:outline-none focus:ring-2 focus:ring-batak-brown-light h-10"
+            className="w-full pl-10 sm:pl-12 pr-4 placeholder-batak-brown-light/75 py-2 border bg-batak-brown-darker text-batak-brown-light border-batak-brown-light rounded-full focus:border-batak-brown-medium focus:outline-none focus:ring-2 focus:ring-batak-brown-light h-10 text-sm sm:text-base"
           />
         </div>
-        <div className="relative filter-dropdown-container">
+        <div className="relative filter-dropdown-container order-1 sm:order-2">
           <Button 
             variant="ghost" 
-            className="flex items-center gap-2 bg-batak-brown-darker text-batak-brown-light hover:opacity-75 hover:text-batak-brown-light hover:bg-batak-brown-darker shadow-lg min-w-[120px] h-10"
+            className="flex items-center gap-2 bg-batak-brown-darker text-batak-brown-light hover:opacity-75 hover:text-batak-brown-light hover:bg-batak-brown-darker shadow-lg w-full sm:min-w-[160px] sm:max-w-[200px] h-10 text-sm sm:text-base"
             onClick={() => setShowFilterDropdown(!showFilterDropdown)}
           >
-            <Filter className="h-4 w-4 text-batak-brown-medium" />
-            <span className="truncate">
+            <Filter className="h-4 w-4 text-batak-brown-medium flex-shrink-0" />
+            <span className="truncate flex-1">
               {selectedCategory === 'Semua' ? 'Filter' : selectedCategory}
             </span>
-            <ChevronDown className="h-4 w-4 text-batak-brown-medium ml-auto" />
+            <ChevronDown className="h-4 w-4 text-batak-brown-medium flex-shrink-0" />
           </Button>
           
           {/* Filter Dropdown */}
           {showFilterDropdown && (
-            <div className="absolute right-0 top-full mt-2 bg-batak-brown-darker border border-batak-brown-light rounded-lg shadow-lg z-10 min-w-[160px] overflow-hidden">
+            <div className="absolute right-0 top-full mt-2 bg-batak-brown-darker border border-batak-brown-light rounded-lg shadow-lg z-10 w-full sm:min-w-[180px] overflow-hidden">
               {characterCategories.map((category, index) => (
                 <button
                   key={category.name}
@@ -290,7 +281,7 @@ export default function Gallery() {
                     setShowFilterDropdown(false)
                     setCurrentPage(1)
                   }}
-                  className={`w-full text-left px-4 py-2 hover:bg-batak-brown-medium hover:text-batak-brown-dark transition-colors whitespace-nowrap ${
+                  className={`w-full text-left px-3 sm:px-4 py-2 hover:bg-batak-brown-medium hover:text-batak-brown-dark transition-colors text-sm sm:text-base ${
                     selectedCategory === category.name 
                       ? 'bg-batak-brown-medium text-batak-brown-dark' 
                       : 'text-batak-brown-light'
@@ -300,7 +291,10 @@ export default function Gallery() {
                     index === characterCategories.length - 1 ? 'rounded-b-lg' : ''
                   }`}
                 >
-                  {category.name} ({category.count})
+                  <div className="flex items-center justify-between">
+                    <span className="font-medium">{category.name}</span>
+                    <span className="text-xs sm:text-sm opacity-75">({category.count})</span>
+                  </div>
                 </button>
               ))}
             </div>
@@ -308,55 +302,61 @@ export default function Gallery() {
         </div>
       </motion.div>
 
-      {/* Character Categories */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        viewport={{ once: true, amount: 0.3 }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-16"
-      >
-        {characterCategories.map((category, index) => (
+      {/* Character Categories - Only show when not searching */}
+      <AnimatePresence mode="wait">
+        {searchQuery === '' && (
           <motion.div
-            key={category.name}
+            key="character-categories"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
           >
-            <Card 
-              className={`bg-batak-brown-medium border-none hover:shadow-[0_0_30px_rgba(214,192,179,0.5)] transition-all duration-300 cursor-pointer text-batak-brown-dark text-center transform hover:scale-105 h-full flex flex-col ${
-                selectedCategory === category.name ? 'ring-2 ring-batak-brown-light shadow-[0_0_30px_rgba(214,192,179,0.7)]' : ''
-              }`}
-              onClick={() => {
-                setSelectedCategory(category.name)
-                setCurrentPage(1) // Reset to first page when changing category
-              }}
-            >
-              <CardHeader className="flex-grow-0">
-                <CardTitle className="text-2xl font-heading whitespace-nowrap">{category.name}</CardTitle>
-                <CardDescription className='text-inherit'>{category.description}</CardDescription>
-              </CardHeader>
-              <CardContent className="flex-grow flex flex-col justify-center">
-                <div className="text-6xl font-bold mb-2">
-                  {category.count}
-                </div>
-                <p className="text-sm text-batak-brown-light">Karakter tersedia</p>
-              </CardContent>
-            </Card>
+            {characterCategories.map((category, index) => (
+              <motion.div
+                key={category.name}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+              >
+                <Card 
+                  className={`bg-batak-brown-medium border-none hover:shadow-[0_0_30px_rgba(214,192,179,0.5)] transition-all duration-300 cursor-pointer text-batak-brown-dark text-center transform hover:scale-105 h-full flex flex-col ${
+                    selectedCategory === category.name ? 'ring-2 ring-batak-brown-light shadow-[0_0_30px_rgba(214,192,179,0.7)]' : ''
+                  }`}
+                  onClick={() => {
+                    setSelectedCategory(category.name)
+                    setCurrentPage(1)
+                  }}
+                >
+                  <CardHeader className="flex-grow-0 p-3 sm:p-4">
+                    <CardTitle className="text-lg sm:text-xl lg:text-2xl font-heading leading-tight">{category.name}</CardTitle>
+                    <CardDescription className='text-inherit text-xs sm:text-sm leading-tight'>{category.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex flex-col justify-center p-3 sm:p-4 pt-0">
+                    <div className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2">
+                      {category.count}
+                    </div>
+                    <p className="text-xs sm:text-sm text-batak-brown-dark">Jumlah Karakter</p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
           </motion.div>
-        ))}
-      </motion.div>
+        )}
+      </AnimatePresence>
 
-      {/* Character Grid Placeholder */}
+      {/* Character Grid */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 0.1 }}
         className="bg-batak-brown-darker rounded-xl p-8"
       >
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-3xl font-heading text-batak-brown-light">Semua Karakter</h2>
+          <h2 className="text-3xl font-heading text-batak-brown-light">
+            {searchQuery === '' ? 'Semua Karakter' : `Hasil Pencarian: "${searchQuery}"`}
+          </h2>
           <p className="text-sm text-batak-brown-light">
             Halaman {currentPage} dari {totalPages} ({totalFilteredCharacters} total karakter)
           </p>
@@ -462,11 +462,22 @@ export default function Gallery() {
         className="bg-batak-brown-muted rounded-lg p-6 flex flex-col gap-4"
       >
         <h3 className="text-2xl font-heading text-batak-brown-medium mb-2">
-          Cara Menggunakan Galeri
+          Cara Menggunakan Galeri Aksara Batak
         </h3>
-        <p className="text-batak-brown-light">
-          Klik pada karakter mana pun untuk melihat informasi detail termasuk pelafalan & contoh penggunaan. Gunakan fungsi pencarian untuk dengan cepat menemukan karakter tertentu atau jelajahi berdasarkan kategori.
-        </p>
+        <div className="space-y-3">
+          <p className="text-batak-brown-light">
+            <strong>Induk Aksara:</strong> 19 aksara dasar Batak Toba, masing-masing memiliki vokal 'a' yang melekat. Ini adalah fondasi sistem penulisan Batak.
+          </p>
+          <p className="text-batak-brown-light">
+            <strong>Anak ni Surat:</strong> Diakritik vokal yang diletakkan di atas, bawah, atau samping Induk Aksara untuk mengubah bunyi vokal 'a' menjadi i, u, e, atau o.
+          </p>
+          <p className="text-batak-brown-light">
+            <strong>Pangolat:</strong> Tanda bunuh (᯲) yang digunakan untuk mematikan vokal 'a' yang melekat pada akhir kata atau suku kata tertutup.
+          </p>
+          <p className="text-batak-brown-light">
+            Klik pada karakter mana pun untuk melihat detail lengkap termasuk cara penggunaan dan contoh penggabungan. Gunakan filter untuk menjelajahi kategori tertentu.
+          </p>
+        </div>
       </motion.div>
       </div>
 
@@ -505,8 +516,8 @@ export default function Gallery() {
                 <>
                   {/* Character Display */}
                   <div className="text-center mb-8">
-                    <div className="bg-batak-brown-medium rounded-2xl p-8 mb-4 inline-block">
-                      <span className="text-8xl font-medium text-batak-brown-dark">
+                    <div className="bg-batak-brown-medium rounded-2xl p-8 mb-4 inline-flex items-center justify-center min-w-[120px] min-h-[120px] overflow-hidden">
+                      <span className="text-6xl lg:text-7xl xl:text-8xl font-medium text-batak-brown-dark break-all text-center leading-tight max-w-full">
                         {character.character}
                       </span>
                     </div>
@@ -570,15 +581,177 @@ export default function Gallery() {
                         Contoh Penggunaan
                       </h4>
                       <div className="space-y-2">
-                        <p className="text-batak-brown-light">
-                          • Contoh kata menggunakan {character.name}
-                        </p>
-                        <p className="text-batak-brown-light">
-                          • Contoh lain dengan karakter ini
-                        </p>
-                        <p className="text-batak-brown-light">
-                          • Penggunaan tradisional dalam aksara Batak
-                        </p>
+                        {(() => {
+                          // Generate examples based on character category and name
+                          const examples = []
+                          
+                          if (character.category === 'Induk Aksara') {
+                            if (character.name === 'A') {
+                              examples.push('• ᯀ (a) - digunakan sebagai vokal mandiri')
+                              examples.push('• ᯀᯪ (ai) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯀᯔ (ama) = ayah')
+                            } else if (character.name === 'Ha/Ka') {
+                              examples.push('• ᯂ (ha/ka) - konsonan dengan vokal a')
+                              examples.push('• ᯂᯪ (hi/ki) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯂᯪᯖ (hit) = kita')
+                            } else if (character.name === 'Ba') {
+                              examples.push('• ᯅ (ba) - konsonan dengan vokal a')
+                              examples.push('• ᯅᯪ (bi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯅᯖᯰ (biang) = perempuan')
+                            } else if (character.name === 'Pa') {
+                              examples.push('• ᯇ (pa) - konsonan dengan vokal a')
+                              examples.push('• ᯇᯪ (pi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯇᯪᯗᯮ (pitu) = tujuh')
+                            } else if (character.name === 'Na') {
+                              examples.push('• ᯉ (na) - konsonan dengan vokal a')
+                              examples.push('• ᯉᯪ (ni) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯉᯪ (ni) = dari/milik')
+                            } else if (character.name === 'Wa') {
+                              examples.push('• ᯋ (wa) - konsonan dengan vokal a')
+                              examples.push('• ᯋᯪ (wi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯋᯉ (wan) = hari')
+                            } else if (character.name === 'Ga') {
+                              examples.push('• ᯎ (ga) - konsonan dengan vokal a')
+                              examples.push('• ᯎᯪ (gi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯎᯉ (gana) = nama')
+                            } else if (character.name === 'Ja') {
+                              examples.push('• ᯐ (ja) - konsonan dengan vokal a')
+                              examples.push('• ᯐᯪ (ji) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯐᯗ (jat) = jadi')
+                            } else if (character.name === 'Da') {
+                              examples.push('• ᯑ (da) - konsonan dengan vokal a')
+                              examples.push('• ᯑᯪ (di) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯑᯖ (dat) = datang')
+                            } else if (character.name === 'Ra') {
+                              examples.push('• ᯒ (ra) - konsonan dengan vokal a')
+                              examples.push('• ᯒᯪ (ri) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯒᯖᯐ (raja) = raja')
+                            } else if (character.name === 'Ma') {
+                              examples.push('• ᯔ (ma) - konsonan dengan vokal a')
+                              examples.push('• ᯔᯪ (mi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯔᯉᯪᯘᯪ (manisi) = manis')
+                            } else if (character.name === 'Ca') {
+                              examples.push('• ᯕ (ca) - konsonan dengan vokal a')
+                              examples.push('• ᯕᯪ (ci) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯕᯪᯞᯮ (cilu) = telur')
+                            } else if (character.name === 'Fa') {
+                              examples.push('• ᯖ (fa) - konsonan dengan vokal a')
+                              examples.push('• ᯖᯪ (fi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯖᯪᯞᯔ (film) = film')
+                            } else if (character.name === 'Ta') {
+                              examples.push('• ᯗ (ta) - konsonan dengan vokal a')
+                              examples.push('• ᯗᯪ (ti) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯗᯖᯰ (tano) = tanah')
+                            } else if (character.name === 'Sa') {
+                              examples.push('• ᯘ (sa) - konsonan dengan vokal a')
+                              examples.push('• ᯘᯪ (si) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯘᯘᯔ (sasam) = asam')
+                            } else if (character.name === 'Ya') {
+                              examples.push('• ᯛ (ya) - konsonan dengan vokal a')
+                              examples.push('• ᯛᯪ (yi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯛᯘᯮᯘ (yasus) = Yesus')
+                            } else if (character.name === 'Nga') {
+                              examples.push('• ᯝ (nga) - konsonan dengan vokal a')
+                              examples.push('• ᯝᯪ (ngi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯝᯔᯠ (nganya) = mulut')
+                            } else if (character.name === 'La') {
+                              examples.push('• ᯞ (la) - konsonan dengan vokal a')
+                              examples.push('• ᯞᯪ (li) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯞᯇ᯲ (lap) = lebar')
+                            } else if (character.name === 'Nya') {
+                              examples.push('• ᯠ (nya) - konsonan dengan vokal a')
+                              examples.push('• ᯠᯪ (nyi) - dengan anak ni surat i')
+                              examples.push('• Dalam kata: ᯠᯖᯔ (nyata) = nyata')
+                            }
+                          } else if (character.category === 'Ina ni Surat') {
+                            if (character.name === 'I') {
+                              examples.push('• ᯤ (i) - vokal mandiri untuk kata yang dimulai i')
+                              examples.push('• ᯤᯔ (ima) = lima (angka)')
+                              examples.push('• ᯤᯗ (ita) = kita')
+                            } else if (character.name === 'U') {
+                              examples.push('• ᯥ (u) - vokal mandiri untuk kata yang dimulai u')
+                              examples.push('• ᯥᯞᯘ (ulas) = ular')
+                              examples.push('• ᯥᯔ (uma) = ladang')
+                            }
+                          } else if (character.category === 'Anak ni Surat') {
+                            if (character.name === 'Siulu (i)') {
+                              examples.push('• ᯪ - diakritik untuk mengubah a menjadi i')
+                              examples.push('• ᯅᯪ (bi) = dengan, oleh')
+                              examples.push('• ᯉᯪ (ni) = dari, milik')
+                            } else if (character.name === 'Haborotan (u)') {
+                              examples.push('• ᯮ - diakritik untuk mengubah a menjadi u')
+                              examples.push('• ᯅᯮ (bu) = buah')
+                              examples.push('• ᯗᯮᯞᯮ (tulu) = tiga')
+                            } else if (character.name === 'Hatadingan (e)') {
+                              examples.push('• ᯩ - diakritik untuk mengubah a menjadi e')
+                              examples.push('• ᯅᯩ (be) = ada')
+                              examples.push('• ᯒᯩ (re) = ke, pada')
+                            } else if (character.name === 'Siulu (o)') {
+                              examples.push('• ᯬ - diakritik untuk mengubah a menjadi o')
+                              examples.push('• ᯅᯬ (bo) = bau')
+                              examples.push('• ᯞᯬ (lo) = lho')
+                            } else if (character.name === 'Haminsaran (ng)') {
+                              examples.push('• ᯰ - diakritik untuk menambah bunyi ng')
+                              examples.push('• ᯅᯪᯠᯰ (biyang) = perempuan')
+                              examples.push('• ᯒᯫᯰ (roang) = ruang')
+                            }
+                          } else if (character.category === 'Tanda Bunuh') {
+                            examples.push('• ᯲ - mematikan vokal a yang melekat')
+                            examples.push('• ᯞᯇ᯲ (lap) = lebar')
+                            examples.push('• ᯎᯉ᯲ (gan) = dengan')
+                          } else if (character.category === 'Karakter Khusus') {
+                            examples.push('• ᯧ - kebereten untuk bahasa Karo/Pakpak')
+                            examples.push('• Digunakan untuk bunyi e dalam dialek tertentu')
+                            examples.push('• Berbeda dengan hatadingan (ᯩ)')
+                          } else if (character.category === 'Angka') {
+                            const numbers = ['nol', 'sada', 'dua', 'tolu', 'opat', 'lima', 'onom', 'pitu', 'walu', 'sia']
+                            const index = parseInt(character.name.match(/\d+/)?.[0] || '0')
+                            if (index < numbers.length) {
+                              examples.push(`• ${character.character} = ${numbers[index]} (${index})`)
+                              examples.push(`• Sistem bilangan tradisional Batak`)
+                              examples.push(`• Digunakan dalam penulisan angka Batak`)
+                            }
+                          } else if (character.category === 'Contoh Kombinasi') {
+                            if (character.name === 'Bi') {
+                              examples.push('• ᯅᯪ (bi) = dengan, oleh')
+                              examples.push('• Kombinasi: Ba + anak ni surat i')
+                              examples.push('• Contoh kalimat: ᯅᯪ ᯀᯮ (bi au) = oleh saya')
+                            } else if (character.name === 'Bu') {
+                              examples.push('• ᯅᯮ (bu) = buah')
+                              examples.push('• Kombinasi: Ba + anak ni surat u')
+                              examples.push('• Contoh: ᯅᯮ ᯔᯝ (bu manga) = buah mangga')
+                            } else if (character.name === 'Be') {
+                              examples.push('• ᯅᯩ (be) = ada')
+                              examples.push('• Kombinasi: Ba + anak ni surat e')
+                              examples.push('• Contoh: ᯅᯩ ᯀᯮ (be au) = ada saya')
+                            } else if (character.name === 'Bo') {
+                              examples.push('• ᯅᯬ (bo) = bau')
+                              examples.push('• Kombinasi: Ba + anak ni surat o')
+                              examples.push('• Contoh: ᯅᯬ ᯝᯫᯒ (bo nanggar) = bau harum')
+                            } else if (character.name === 'Lap') {
+                              examples.push('• ᯞᯇ᯲ (lap) = lebar')
+                              examples.push('• Kombinasi: La + Pa + Pangolat')
+                              examples.push('• Menunjukkan penggunaan tanda bunuh')
+                            } else if (character.name === 'Gana') {
+                              examples.push('• ᯎᯉ (gana) = nama')
+                              examples.push('• Kombinasi: Ga + Na')
+                              examples.push('• Contoh: ᯎᯉ ᯀᯮ (gana au) = nama saya')
+                            }
+                          }
+                          
+                          // Default examples if no specific ones found
+                          if (examples.length === 0) {
+                            examples.push(`• Karakter ${character.name} dalam sistem aksara Batak`)
+                            examples.push(`• Kategori: ${character.category}`)
+                            examples.push(`• Pelafalan: [${character.pronunciation}]`)
+                          }
+                          
+                          return examples.map((example, index) => (
+                            <p key={index} className="text-batak-brown-light text-sm">
+                              {example}
+                            </p>
+                          ))
+                        })()}
                       </div>
                     </div>
 
