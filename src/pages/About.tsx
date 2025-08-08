@@ -7,26 +7,26 @@ export default function About() {
   const culturalAspects = [
     {
       icon: Users,
-      title: 'The Batak People',
-      description: 'Learn about the rich heritage and traditions of the Batak ethnic groups in North Sumatra.',
+      title: 'Masyarakat Batak',
+      description: 'Pelajari tentang warisan budaya dan tradisi yang kaya dari kelompok etnis Batak di Sumatera Utara.',
     },
     {
       icon: MapPin,
-      title: 'Geographic Origins',
-      description: 'Discover the regions where Aksara Batak developed and is still practiced today.',
+      title: 'Asal Geografis',
+      description: 'Temukan wilayah-wilayah di mana Aksara Batak berkembang dan masih dipraktikkan hingga hari ini.',
     },
     {
       icon: Calendar,
-      title: 'Historical Timeline',
-      description: 'Explore the evolution of the script from ancient times to modern preservation efforts.',
+      title: 'Garis Waktu Sejarah',
+      description: 'Jelajahi evolusi aksara dari zaman kuno hingga upaya pelestarian modern.',
     },
   ]
 
   const projectInfo = [
-    { label: 'Purpose', value: 'Digital preservation of Aksara Batak script' },
-    { label: 'Target Audience', value: 'Students, researchers, and cultural enthusiasts' },
-    { label: 'Development Status', value: 'Active development with community input' },
-    { label: 'Open Source', value: 'Available for educational and research purposes' },
+    { label: 'Tujuan', value: 'Pelestarian digital aksara Batak' },
+    { label: 'Target Audiens', value: 'Pelajar, peneliti, dan penggemar budaya' },
+    { label: 'Status Pengembangan', value: 'Pengembangan aktif dengan masukan komunitas' },
+    { label: 'Sumber Terbuka', value: 'Tersedia untuk tujuan pendidikan dan penelitian' },
   ]
 
   return (
@@ -40,11 +40,11 @@ export default function About() {
         className="text-center"
       >
         <h1 className="text-4xl font-bold text-batak-cream mb-4">
-          About Aksara Batak
+          Tentang Aksara Batak
         </h1>
         <p className="text-lg text-batak-cream/90 max-w-3xl mx-auto">
-          Preserving and promoting the beautiful traditional script of the Batak people through 
-          modern technology and education.
+          Melestarikan dan mempromosikan aksara tradisional yang indah dari masyarakat Batak melalui 
+          teknologi modern dan pendidikan.
         </p>
       </motion.div>
 
@@ -54,12 +54,12 @@ export default function About() {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg p-8 text-white text-center"
+        className="bg-gradient-to-r from-batak-brown-dark to-batak-brown-darker rounded-lg p-8 text-white text-center"
       >
-        <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
-        <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-          To create an accessible, comprehensive platform for learning and preserving Aksara Batak, 
-          ensuring this cultural treasure continues to thrive in the digital age.
+        <h2 className="text-2xl font-bold mb-4">Misi Kami</h2>
+        <p className="text-lg text-batak-cream max-w-2xl mx-auto">
+          Menciptakan platform yang mudah diakses dan komprehensif untuk mempelajari dan melestarikan Aksara Batak, 
+          memastikan harta budaya ini terus berkembang di era digital.
         </p>
       </motion.div>
 
@@ -71,8 +71,8 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
         className="space-y-8"
       >
-        <h2 className="text-3xl font-bold text-gray-900 text-center">
-          Understanding the Culture
+        <h2 className="text-3xl font-bold text-batak-brown-dark text-center">
+          Memahami Budaya
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {culturalAspects.map((aspect, index) => {
@@ -85,15 +85,15 @@ export default function About() {
                 transition={{ duration: 0.8, delay: 0.5 + index * 0.1 }}
                 viewport={{ once: true, amount: 0.3 }}
               >
-                <Card className="h-full text-center hover:shadow-lg transition-shadow">
+                <Card className="h-full text-center hover:shadow-lg transition-shadow bg-batak-brown-light border-0">
                   <CardHeader>
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                      <Icon className="h-6 w-6 text-blue-600" />
+                    <div className="w-12 h-12 bg-batak-brown-muted rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <Icon className="h-6 w-6 text-batak-brown-dark" />
                     </div>
-                    <CardTitle className="text-xl">{aspect.title}</CardTitle>
+                    <CardTitle className="text-xl text-batak-brown-dark">{aspect.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <CardDescription className="text-base">
+                    <CardDescription className="text-base text-batak-brown-dark/80">
                       {aspect.description}
                     </CardDescription>
                   </CardContent>
@@ -113,30 +113,30 @@ export default function About() {
         className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
       >
         <div>
-          <h2 className="text-3xl font-bold text-gray-900 mb-6">
-            About Aksara Batak
+          <h2 className="text-3xl font-bold text-batak-brown-dark mb-6">
+            Tentang Aksara Batak
           </h2>
-          <div className="space-y-4 text-gray-600">
+          <div className="space-y-4 text-batak-brown-dark/80">
             <p>
-              Aksara Batak is a traditional writing system used by the Batak people of North Sumatra, Indonesia. 
-              This ancient script has been used for centuries to record traditional literature, religious texts, 
-              and cultural knowledge.
+              Aksara Batak adalah sistem penulisan tradisional yang digunakan oleh masyarakat Batak di Sumatera Utara, Indonesia. 
+              Aksara kuno ini telah digunakan selama berabad-abad untuk merekam sastra tradisional, teks keagamaan, 
+              dan pengetahuan budaya.
             </p>
             <p>
-              The script consists of consonantal characters with vowel diacritics, making it similar to other 
-              Southeast Asian writing systems. Each character represents a consonant with an inherent vowel 
-              that can be modified using various diacritical marks.
+              Aksara ini terdiri dari karakter konsonan dengan diakritik vokal, membuatnya mirip dengan sistem penulisan 
+              Asia Tenggara lainnya. Setiap karakter mewakili konsonan dengan vokal inherent 
+              yang dapat dimodifikasi menggunakan berbagai tanda diakritik.
             </p>
             <p>
-              Today, there is a growing movement to preserve and revitalize Aksara Batak through digital 
-              platforms, educational programs, and cultural initiatives.
+              Saat ini, ada gerakan yang berkembang untuk melestarikan dan merevitalisasi Aksara Batak melalui platform 
+              digital, program pendidikan, dan inisiatif budaya.
             </p>
           </div>
         </div>
-        <div className="bg-gray-100 rounded-lg p-8 flex items-center justify-center">
+        <div className="bg-batak-brown-muted rounded-lg p-8 flex items-center justify-center">
           <div className="text-center">
             <div className="text-6xl mb-4">📜</div>
-            <p className="text-gray-600">Traditional Aksara Batak manuscript</p>
+            <p className="text-batak-brown-dark">Manuskrip tradisional Aksara Batak</p>
           </div>
         </div>
       </motion.div>
@@ -149,10 +149,10 @@ export default function About() {
         viewport={{ once: true, amount: 0.3 }}
         className="space-y-6"
       >
-        <h2 className="text-3xl font-bold text-gray-900 text-center">
-          About This Project
+        <h2 className="text-3xl font-bold text-batak-brown-dark text-center">
+          Tentang Proyek Ini
         </h2>
-        <Card>
+        <Card className="bg-batak-brown-light border-0">
           <CardContent className="p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {projectInfo.map((info, index) => (
@@ -162,10 +162,10 @@ export default function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.9 + index * 0.1 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  className="flex justify-between items-center p-4 bg-gray-50 rounded-lg"
+                  className="flex justify-between items-center p-4 bg-batak-brown-muted rounded-lg"
                 >
-                  <span className="font-medium text-gray-900">{info.label}:</span>
-                  <span className="text-gray-600">{info.value}</span>
+                  <span className="font-medium text-batak-brown-dark">{info.label}:</span>
+                  <span className="text-batak-brown-dark/80">{info.value}</span>
                 </motion.div>
               ))}
             </div>
@@ -180,21 +180,21 @@ export default function About() {
         transition={{ duration: 0.8, delay: 1.0 }}
         className="text-center space-y-6"
       >
-        <h2 className="text-3xl font-bold text-gray-900">
-          Join Our Community
+        <h2 className="text-3xl font-bold text-batak-brown-dark">
+          Bergabung dengan Komunitas Kami
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Help us preserve and promote Aksara Batak by contributing to the project, 
-          sharing knowledge, or simply learning the script yourself.
+        <p className="text-lg text-batak-brown-dark/80 max-w-2xl mx-auto">
+          Bantu kami melestarikan dan mempromosikan Aksara Batak dengan berkontribusi pada proyek, 
+          berbagi pengetahuan, atau sekadar mempelajari aksara ini sendiri.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="flex items-center gap-2">
             <Heart className="h-4 w-4" />
-            Support the Project
+            Dukung Proyek
           </Button>
           <Button variant="outline" size="lg" className="flex items-center gap-2">
             <ExternalLink className="h-4 w-4" />
-            Learn More
+            Pelajari Lebih Lanjut
           </Button>
         </div>
       </motion.div>
@@ -204,15 +204,15 @@ export default function About() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 1.2 }}
-        className="bg-gray-50 rounded-lg p-8"
+        className="bg-batak-brown-muted rounded-lg p-8"
       >
-        <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
-          Acknowledgments
+        <h3 className="text-xl font-bold text-batak-brown-dark mb-4 text-center">
+          Ucapan Terima Kasih
         </h3>
-        <p className="text-gray-600 text-center max-w-3xl mx-auto">
-          We extend our gratitude to the Batak cultural experts, linguists, and community members 
-          who have contributed their knowledge and expertise to make this project possible. 
-          Special thanks to all researchers and institutions working to preserve Batak heritage.
+        <p className="text-batak-brown-dark/80 text-center max-w-3xl mx-auto">
+          Kami mengucapkan terima kasih kepada para ahli budaya Batak, linguis, dan anggota komunitas 
+          yang telah berkontribusi dengan pengetahuan dan keahlian mereka untuk mewujudkan proyek ini. 
+          Terima kasih khusus kepada semua peneliti dan institusi yang bekerja untuk melestarikan warisan Batak.
         </p>
       </motion.div>
     </div>

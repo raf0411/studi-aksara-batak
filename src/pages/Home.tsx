@@ -4,25 +4,26 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ArrowRight, Book, GraduationCap, Languages } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import Marquee from 'react-fast-marquee'
+import { useTypewriter } from '@/hooks/useTypewriter'
 
 export default function Home() {
   const features = [
     {
       icon: Book,
-      title: 'Character Gallery',
-      description: 'Explore the beautiful Aksara Batak writing system',
+      title: 'Galeri Karakter',
+      description: 'Jelajahi sistem penulisan Aksara Batak yang indah',
       href: '/gallery',
     },
     {
       icon: GraduationCap,
-      title: 'Learning Center',
-      description: 'Learn to read and write Aksara Batak',
+      title: 'Pusat Pembelajaran',
+      description: 'Belajar membaca dan menulis Aksara Batak',
       href: '/learn',
     },
     {
       icon: Languages,
-      title: 'Translator Tool',
-      description: 'Translate between Latin and Aksara Batak',
+      title: 'Alat Penerjemah',
+      description: 'Terjemahkan antara Latin dan Aksara Batak',
       href: '/translator',
     },
   ]
@@ -31,14 +32,25 @@ export default function Home() {
     'ᯀ', 'ᯁ', 'ᯂ', 'ᯃ', 'ᯄ', 'ᯅ', 'ᯆ', 'ᯇ', 'ᯈ', 'ᯉ', 'ᯊ', 'ᯋ', 'ᯌ', 'ᯍ', 'ᯎ', 'ᯏ', 'ᯐ', 'ᯑ', 'ᯒ', 'ᯓ', 'ᯔ', 'ᯕ'
   ]
 
-  // Prevent wheel scrolling on marquee containers
+  const welcomeTexts = [
+    'Selamat Datang di Studi Aksara Batak!',
+    'ᯘᯩᯞᯔᯖ᯲ ᯑᯖᯰ ᯑᯪ ᯘ᯲ᯖᯮᯑᯪ ᯀᯄ᯦᯲ᯘᯒ ᯅᯖᯄ᯦᯲!'
+  ]
+
+  const typewriterText = useTypewriter({
+    texts: welcomeTexts,
+    typeSpeed: 100,
+    deleteSpeed: 50,
+    delayBetweenTexts: 3000,
+    loop: true
+  })
+
   const handleWheel = (e: React.WheelEvent) => {
     e.preventDefault()
     e.stopPropagation()
     return false
   }
 
-  // Also prevent wheel scrolling using native event
   const handleWheelCapture = (e: React.WheelEvent) => {
     e.preventDefault()
     e.stopPropagation()
@@ -84,23 +96,24 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side - Text and buttons */}
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-heading font-bold text-batak-cream mb-6">
-              Welcome to Studi Aksara Batak!
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-batak-cream mb-6 min-h-[2rem] md:min-h-[3.5rem]">
+              {typewriterText}
+              <span className="animate-pulse">|</span>
             </h1>
             <p className="text-xl text-justify text-batak-cream/90 max-w-2xl">
-              Discover the ancient and beautiful writing system of the Batak people. 
-              Learn, explore, and preserve this cultural heritage for future generations.
+              Temukan sistem penulisan kuno dan indah dari masyarakat Batak. 
+              Belajar, jelajahi, dan lestarikan warisan budaya ini untuk generasi mendatang.
             </p>
             <div className="flex flex-col sm:flex-row gap-8">
               <Button asChild size="lg">
                 <Link to="/learn">
-                  Start Learning
+                  Mulai Belajar
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="secondary" size="lg" asChild>
                 <Link to="/gallery">
-                  Explore Gallery
+                  Jelajahi Galeri
                 </Link>
               </Button>
             </div>
@@ -222,7 +235,7 @@ export default function Home() {
                     </CardDescription>
                     <Button asChild className="w-full mt-auto">
                       <Link to={feature.href}>
-                        Explore
+                        Jelajahi
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
@@ -243,15 +256,15 @@ export default function Home() {
         className="bg-batak-brown-muted w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] p-12 text-center"
       >
         <h2 className="text-3xl font-heading font-bold text-batak-brown-light mb-4">
-          Ready to Begin Your Journey?
+          Siap Memulai Perjalanan Anda?
         </h2>
         <p className="text-lg text-batak-brown-light mb-8 max-w-2xl mx-auto">
-          Join us in preserving and learning this beautiful traditional script. 
-          Start your adventure with Aksara Batak today.
+          Bergabunglah dengan kami dalam melestarikan dan mempelajari aksara tradisional yang indah ini. 
+          Mulai petualangan Anda dengan Aksara Batak hari ini.
         </p>
         <Button size="lg" asChild>
           <Link to="/learn">
-            Get Started
+            Mulai Sekarang
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>

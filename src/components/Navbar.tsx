@@ -5,11 +5,11 @@ import { Menu, X, Home, Book, GraduationCap, Languages, Info } from 'lucide-reac
 import { Button } from '@/components/ui/button'
 
 const navigation = [
-  { name: 'Home', href: '/', icon: Home },
-  { name: 'Character Gallery', href: '/gallery', icon: Book },
-  { name: 'Learning Center', href: '/learn', icon: GraduationCap },
-  { name: 'Translator', href: '/translator', icon: Languages },
-  { name: 'About', href: '/about', icon: Info },
+  { name: 'Beranda', href: '/', icon: Home },
+  { name: 'Galeri Karakter', href: '/gallery', icon: Book },
+  { name: 'Pusat Pembelajaran', href: '/learn', icon: GraduationCap },
+  { name: 'Penerjemah', href: '/translator', icon: Languages },
+  { name: 'Tentang', href: '/about', icon: Info },
 ]
 
 export default function Navbar() {
