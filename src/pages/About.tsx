@@ -14,7 +14,7 @@ export default function About() {
       setShowDetail(false)
       setTimeout(() => {
         setSelectedTimelineItem(null)
-      }, 400) // match animation duration
+      }, 400) 
     } else {
       setSelectedTimelineItem(index)
       setShowDetail(true)
@@ -353,7 +353,7 @@ export default function About() {
           <div className="text-center">
             <div className="mb-4 flex items-center justify-center">
               <img
-                src="src/assets/manuskrip_aksara_batak.webp"
+                src="./src/assets/manuskrip_aksara_batak.webp"
                 alt="Manuskrip tradisional Aksara Batak"
                 className="rounded-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
                 style={{ maxWidth: '100%', height: 'auto' }}
@@ -375,7 +375,7 @@ export default function About() {
           <div className="text-center">
             <div className="mb-4 flex items-center justify-center">
               <img
-                src="src/assets/budaya_aksara_batak_2.webp"
+                src="./src/assets/budaya_aksara_batak_2.webp"
                 alt="Budaya Batak"
                 className="rounded-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
                 style={{ maxWidth: '100%', height: 'auto' }}
@@ -473,7 +473,7 @@ export default function About() {
           <div className="text-center">
             <div className="mb-4 flex items-center justify-center">
               <img
-                src="src/assets/budaya_aksara_batak_3.webp"
+                src="./src/assets/budaya_aksara_batak_3.webp"
                 alt="Tradisi Batak"
                 className="rounded-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
                 style={{ maxWidth: '100%', height: 'auto' }}
