@@ -55,7 +55,7 @@ export default function Learn() {
         </p>
         <div className="flex items-center justify-center gap-2 text-amber-600">
           <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
-          <span className="text-sm sm:text-base font-medium">Segera hadir - Q3 2025</span>
+          <span className="text-sm sm:text-base font-medium">Segera hadir</span>
         </div>
       </motion.div>
 
@@ -66,10 +66,10 @@ export default function Learn() {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="text-center"
       >
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-batak-brown-dark mb-3 sm:mb-4 px-2">
+        <h1 className="text-4xl sm:text-3xl lg:text-4xl font-heading text-batak-brown-light mb-3 sm:mb-4 px-2">
           Pusat Pembelajaran
         </h1>
-        <p className="text-sm sm:text-base lg:text-lg text-batak-brown-medium max-w-2xl mx-auto px-4">
+        <p className="text-sm sm:text-base lg:text-lg text-batak-brown-light max-w-2xl mx-auto px-4">
           Kuasai Aksara Batak melalui pelajaran terstruktur, latihan interaktif, dan tutorial komprehensif.
         </p>
       </motion.div>
@@ -108,7 +108,7 @@ export default function Learn() {
         transition={{ duration: 0.8, delay: 0.6 }}
         className="space-y-6"
       >
-        <h2 className="text-xl sm:text-2xl font-bold text-batak-brown-dark px-2">Jalur Pembelajaran (Preview)</h2>
+        <h2 className="text-xl sm:text-2xl font-heading text-batak-brown-light px-2">Jalur Pembelajaran (Preview)</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
           {learningPaths.map((path, index) => {
             const Icon = path.icon
@@ -165,7 +165,7 @@ export default function Learn() {
         transition={{ duration: 0.8, delay: 0.8 }}
         className="space-y-6"
       >
-        <h2 className="text-xl sm:text-2xl font-bold text-batak-brown-dark px-2">Contoh Struktur Pembelajaran</h2>
+        <h2 className="text-xl sm:text-2xl font-heading text-batak-brown-light px-2">Contoh Struktur Pembelajaran</h2>
         <div className="space-y-4">
           {recentLessons.map((lesson, index) => (
             <motion.div

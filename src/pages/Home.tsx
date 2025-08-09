@@ -105,14 +105,14 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center lg:justify-start px-2">
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link to="/learn">
-                  Mulai Belajar
+                <Link to="/about">
+                  Jelajahi Sejarah
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="secondary" size="lg" asChild className="w-full sm:w-auto">
                 <Link to="/gallery">
-                  Jelajahi Galeri
+                  Galeri
                 </Link>
               </Button>
             </div>
@@ -132,10 +132,10 @@ export default function Home() {
                 onWheelCapture={handleWheelCapture}
                 style={{ overflowX: 'hidden', overflowY: 'visible' }}
               >
-                <Marquee speed={50} gradient={false} pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
+                <Marquee speed={30} gradient={false} pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
                   {aksaraCharacters.map((char, index) => (
                     <div key={`row1-${index}`} className="mx-3 sm:mx-4 lg:mx-6 select-none marquee-no-scroll" onWheel={handleWheel}>
-                      <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-batak-cream/70 font-mono select-none pointer-events-none">{char}</span>
+                      <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-batak-brown-medium font-mono select-none pointer-events-none">{char}</span>
                     </div>
                   ))}
                 </Marquee>
@@ -151,7 +151,7 @@ export default function Home() {
                 <Marquee speed={40} gradient={false} direction="right" pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
                   {aksaraCharacters.map((char, index) => (
                     <div key={`row2-${index}`} className="mx-3 sm:mx-4 lg:mx-6 select-none marquee-no-scroll" onWheel={handleWheel}>
-                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-batak-cream/60 font-mono select-none pointer-events-none">{char}</span>
+                      <span className="text-xl sm:text-2xl lg:text-3xl font-bold text-batak-brown-light/60 font-mono select-none pointer-events-none">{char}</span>
                     </div>
                   ))}
                 </Marquee>
@@ -164,7 +164,7 @@ export default function Home() {
                 onWheelCapture={handleWheelCapture}
                 style={{ overflowX: 'hidden', overflowY: 'visible' }}
               >
-                <Marquee speed={50} gradient={false} pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
+                <Marquee speed={55} gradient={false} pauseOnHover={false} pauseOnClick={false} className="rfm-marquee">
                   {aksaraCharacters.map((char, index) => (
                     <div key={`row4-${index}`} className="mx-3 sm:mx-4 lg:mx-6 select-none marquee-no-scroll" onWheel={handleWheel}>
                       <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-batak-cream/70 font-mono select-none pointer-events-none">{char}</span>

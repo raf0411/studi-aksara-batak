@@ -172,17 +172,12 @@ export default function Gallery() {
 
   useEffect(() => {
     if (isModalOpen) {
-      const scrollY = window.scrollY
-      
-      document.body.style.position = 'fixed'
-      document.body.style.top = `-${scrollY}px`
-      document.body.style.width = '100%'
-      
+      // Prevent background scroll and show default cursor
+      document.body.style.overflow = 'hidden'
+      document.body.style.cursor = 'default'
       return () => {
-        document.body.style.position = ''
-        document.body.style.top = ''
-        document.body.style.width = ''
-        window.scrollTo(0, scrollY)
+        document.body.style.overflow = ''
+        document.body.style.cursor = '' // Restore custom cursor
       }
     }
   }, [isModalOpen])
@@ -484,15 +479,17 @@ export default function Gallery() {
       {/* Character Detail Modal - Outside main container */}
       {isModalOpen && selectedCharacter && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] px-4 sm:px-6 lg:px-8" 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-[9999] px-4 sm:px-6 lg:px-8 pointer-events-auto" 
           style={{ margin: 0, padding: '1rem 2rem', top: 0, left: 0, right: 0, bottom: 0, width: '100vw', height: '100vh' }}
+          onClick={closeModal}
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.3 }}
-            className="bg-batak-brown-darker rounded-xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative mx-4"
+            className="bg-batak-brown-darker rounded-xl p-8 max-w-2xl w-full max-h-[90vh] overflow-y-auto relative mx-4 pointer-events-auto"
+            onClick={e => e.stopPropagation()}
           >
             {/* Modal Header */}
             <div className="flex justify-between items-center mb-6">

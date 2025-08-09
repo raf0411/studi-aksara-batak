@@ -9,7 +9,7 @@ const navigation = [
   { name: 'Galeri Karakter', href: '/gallery', icon: Book },
   { name: 'Pusat Pembelajaran', href: '/learn', icon: GraduationCap },
   { name: 'Penerjemah', href: '/translator', icon: Languages },
-  { name: 'Tentang', href: '/about', icon: Info },
+  { name: 'Info', href: '/about', icon: Info },
 ]
 
 export default function Navbar() {
