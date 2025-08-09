@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Users, MapPin, Calendar, Heart, ExternalLink, Scroll, BookOpen, GraduationCap, Globe } from 'lucide-react'
+import { Users, MapPin, Calendar, Scroll, BookOpen, GraduationCap, Globe } from 'lucide-react'
 import { useState } from 'react'
 import React from 'react'
 
@@ -356,7 +355,7 @@ export default function About() {
               <img
                 src="src/assets/manuskrip_aksara_batak.webp"
                 alt="Manuskrip tradisional Aksara Batak"
-                className="rounded-lg shadow-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
+                className="rounded-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
                 style={{ maxWidth: '100%', height: 'auto' }}
               />
             </div>
@@ -378,7 +377,7 @@ export default function About() {
               <img
                 src="src/assets/budaya_aksara_batak_2.webp"
                 alt="Budaya Batak"
-                className="rounded-lg shadow-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
+                className="rounded-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
                 style={{ maxWidth: '100%', height: 'auto' }}
               />
             </div>
@@ -476,7 +475,7 @@ export default function About() {
               <img
                 src="src/assets/budaya_aksara_batak_3.webp"
                 alt="Tradisi Batak"
-                className="rounded-lg shadow-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
+                className="rounded-lg border-2 border-batak-brown-medium object-cover w-40 h-40 sm:w-56 sm:h-56 lg:w-96 lg:h-96 transition-all duration-300 shadow-[0_0_5px_rgba(214,192,179,0.5)]"
                 style={{ maxWidth: '100%', height: 'auto' }}
               />
             </div>
