@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { PlayCircle, BookOpen, Award, CheckCircle, Construction, Clock } from 'lucide-react'
+import { PlayCircle, BookOpen, Award, Construction, Clock } from 'lucide-react'
 import { useNavigate } from 'react-router-dom';
 
 export default function Learn() {
