@@ -12,19 +12,19 @@ export default function Home() {
       icon: Book,
       title: 'Galeri Karakter',
       description: 'Jelajahi sistem penulisan Aksara Batak yang indah',
-      href: '/gallery',
+      href: '/galeri-karakter',
     },
     {
       icon: GraduationCap,
       title: 'Pusat Pembelajaran',
       description: 'Belajar membaca dan menulis Aksara Batak',
-      href: '/learn',
+      href: '/pusat-pembelajaran',
     },
     {
       icon: Languages,
       title: 'Alat Penerjemah',
       description: 'Terjemahkan antara Latin dan Aksara Batak',
-      href: '/translator',
+      href: '/transliterasi',
     },
   ]
 
@@ -105,13 +105,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 lg:gap-8 justify-center lg:justify-start px-2">
               <Button asChild size="lg" className="w-full sm:w-auto">
-                <Link to="/about">
+                <Link to="/info">
                   Jelajahi Sejarah
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
               <Button variant="secondary" size="lg" asChild className="w-full sm:w-auto">
-                <Link to="/gallery">
+                <Link to="/galeri-karakter">
                   Galeri
                 </Link>
               </Button>
@@ -259,7 +259,7 @@ export default function Home() {
           Mulai petualangan Anda dengan Aksara Batak hari ini.
         </p>
         <Button size="lg" asChild>
-          <Link to="/learn">
+          <Link to="/pusat-pembelajaran">
             Mulai Sekarang
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

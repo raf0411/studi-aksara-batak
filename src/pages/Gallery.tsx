@@ -172,12 +172,11 @@ export default function Gallery() {
 
   useEffect(() => {
     if (isModalOpen) {
-      // Prevent background scroll and show default cursor
       document.body.style.overflow = 'hidden'
       document.body.style.cursor = 'default'
       return () => {
         document.body.style.overflow = ''
-        document.body.style.cursor = '' // Restore custom cursor
+        document.body.style.cursor = '' 
       }
     }
   }, [isModalOpen])

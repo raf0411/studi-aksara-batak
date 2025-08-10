@@ -7,6 +7,8 @@ import Gallery from '@/pages/Gallery'
 import Learn from '@/pages/Learn'
 import Translator from '@/pages/Translator'
 import About from '@/pages/About'
+import LevelPemula from '@/pages/LevelPemula'
+import LessonContent from '@/pages/LessonContent'
 
 function App() {
   return (
@@ -16,10 +18,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="gallery" element={<Gallery />} />
-            <Route path="learn" element={<Learn />} />
-            <Route path="translator" element={<Translator />} />
-            <Route path="about" element={<About />} />
+            <Route path="galeri-karakter" element={<Gallery />} />
+            <Route path="pusat-pembelajaran" element={<Learn />} />
+            <Route path="pusat-pembelajaran/level-pemula" element={<LevelPemula />} />
+            <Route path="pusat-pembelajaran/level-pemula/:lessonId" element={<LessonContent />} />
+            <Route path="transliterasi" element={<Translator />} />
+            <Route path="info" element={<About />} />
           </Route>
         </Routes>
       </Router>

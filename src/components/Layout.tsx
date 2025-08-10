@@ -9,9 +9,9 @@ export default function Layout() {
   const location = useLocation()
   
   return (
-    <div className="min-h-screen bg-batak-gradient-horizontal flex flex-col pt-2 sm:pt-4 overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-batak-gradient-horizontal pt-2 sm:pt-4 overflow-x-hidden">
       <Navbar />
-      <main className="flex-1 mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 xl:px-8 py-4 sm:py-6 lg:py-8 pb-16 sm:pb-24">
+      <main className="flex-1 flex flex-col mx-auto max-w-7xl px-3 sm:px-4 lg:px-6 xl:px-8 py-4 sm:py-6 lg:py-8 pb-16 sm:pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}
