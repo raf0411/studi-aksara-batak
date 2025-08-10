@@ -2,15 +2,13 @@ import { motion } from 'framer-motion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { PlayCircle, BookOpen, Award, CheckCircle, Construction, Clock } from 'lucide-react'
-import { useState } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom';
 
 export default function Learn() {
   const navigate = useNavigate();
 
   return (
-    <div className="space-y-8">
+    <div className="flex-1 flex flex-col space-y-8">
       {/* Coming Soon Banner */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
@@ -23,7 +21,7 @@ export default function Learn() {
           <h2 className="text-lg sm:text-2xl font-bold text-amber-800">Fitur Dalam Pengembangan</h2>
         </div>
         <p className="text-sm sm:text-base text-amber-700 mb-3 sm:mb-4 leading-relaxed">
-          Fitur pembelajaran interaktif sedang dalam tahap pengembangan. Saat ini Anda dapat melihat preview dari struktur pembelajaran yang akan tersedia.
+          Fitur pembelajaran sedang dalam tahap pengembangan. Saat ini Anda dapat melihat preview dari struktur pembelajaran "Level Pemula" yang tersedia.
         </p>
         <div className="flex items-center justify-center gap-2 text-amber-600">
           <Clock className="h-4 w-4 sm:h-5 sm:w-5" />
@@ -80,8 +78,8 @@ export default function Learn() {
         className="space-y-6"
       >
         <h2 className="text-xl sm:text-3xl font-heading text-batak-brown-light px-2">Jalur Pembelajaran (Preview)</h2>
-  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 items-stretch">
-          
+  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 items-stretch justify-items-center max-w-xs mx-auto md:max-w-none md:mx-0">
+            
           {/* Beginner Level: Active */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -89,7 +87,7 @@ export default function Learn() {
             transition={{ duration: 0.8, delay: 0.7 }}
             className="flex h-full"
           >
-            <Card className="flex flex-col h-full transition-shadow bg-batak-brown-medium shadow-[0_0_30px_rgba(214,192,179,0.5)] border-0 relative overflow-hidden rounded-xl">
+            <Card className="w-full flex flex-col h-full transition-shadow bg-batak-brown-medium shadow-[0_0_30px_rgba(214,192,179,0.5)] border-0 relative overflow-hidden rounded-xl">
               <CardHeader className="p-4 sm:p-6">
                 <div className="flex items-center gap-6 mb-2">
                   <div className="w-8 h-8 sm:w-16 sm:h-16 bg-batak-brown-muted rounded-lg flex items-center justify-center">
@@ -102,8 +100,8 @@ export default function Learn() {
               <CardContent className="p-4 sm:p-6 pt-0">
                 <div className="flex flex-col gap-3 h-full justify-between">
                   <div className="flex justify-between text-xs sm:text-sm text-batak-brown-dark">
-                    <span>3 pelajaran</span>
-                    <span className="invisible">&nbsp;</span>
+                    <span>6 pelajaran</span>
+                    <span className="opacity-0">-</span>
                   </div>
                   <div className="w-full bg-batak-brown-light-50 rounded-full h-2">
                     <div className="bg-batak-brown-light-50 h-2 rounded-full" style={{ width: `0%` }}></div>
@@ -123,7 +121,7 @@ export default function Learn() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex h-full"
           >
-            <Card className="flex flex-col h-full transition-shadow bg-batak-brown-medium shadow-[0_0_30px_rgba(214,192,179,0.5)] border-0 relative overflow-hidden rounded-xl">
+            <Card className="w-full flex flex-col h-full transition-shadow bg-batak-brown-medium shadow-[0_0_30px_rgba(214,192,179,0.5)] border-0 relative overflow-hidden rounded-xl">
               <div className="absolute inset-0 bg-white/40 z-10 flex items-center justify-center">
                 <div className="bg-white/90 rounded-lg px-3 py-2 text-xs sm:text-sm font-medium text-gray-600">Dalam Pengembangan</div>
               </div>
@@ -158,7 +156,7 @@ export default function Learn() {
             transition={{ duration: 0.8, delay: 0.9 }}
             className="flex h-full"
           >
-            <Card className="flex flex-col h-full transition-shadow bg-batak-brown-medium shadow-[0_0_30px_rgba(214,192,179,0.5)] border-0 relative overflow-hidden rounded-xl">
+            <Card className="w-full flex flex-col h-full transition-shadow bg-batak-brown-medium shadow-[0_0_30px_rgba(214,192,179,0.5)] border-0 relative overflow-hidden rounded-xl">
               <div className="absolute inset-0 bg-white/40 z-10 flex items-center justify-center">
                 <div className="bg-white/90 rounded-lg px-3 py-2 text-xs sm:text-sm font-medium text-gray-600">Dalam Pengembangan</div>
               </div>
