@@ -498,7 +498,7 @@ export default function Translator() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.8 }}
-        className="bg-batak-brown-muted border border-batak-brown-medium rounded-lg p-6"
+        className="bg-batak-brown-muted rounded-lg p-6"
       >
         <h3 className="text-2xl font-heading text-batak-brown-medium mb-3">
           CATATAN:

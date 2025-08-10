@@ -249,7 +249,7 @@ export default function Gallery() {
             placeholder="Cari karakter..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 sm:pl-12 pr-4 placeholder-batak-brown-light/75 py-2 border bg-batak-brown-darker text-batak-brown-light border-batak-brown-light rounded-full focus:border-batak-brown-medium focus:outline-none focus:ring-2 focus:ring-batak-brown-light h-10 text-sm sm:text-base"
+            className="w-full pl-10 sm:pl-12 pr-4 placeholder-batak-brown-light/75 py-2 border bg-batak-brown-darker text-batak-brown-light outline-none border-batak-brown-light rounded-full focus:border-batak-brown-medium focus:outline-none focus:ring-2 focus:ring-batak-brown-light h-10 text-sm sm:text-base"
           />
         </div>
         <div className="relative filter-dropdown-container order-1 sm:order-2">

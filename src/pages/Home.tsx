@@ -219,12 +219,12 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 + index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-lg transition-shadow bg-batak-brown-medium border-0 flex flex-col">
+                <Card className="h-full hover:shadow-lg transition-shadow bg-batak-brown-medium border-0 flex flex-col gap-0">
                   <CardHeader className="text-left font-heading p-4 sm:p-6">
                     <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-batak-brown-muted rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
                       <Icon className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-batak-brown-dark" />
                     </div>
-                    <CardTitle className="text-lg sm:text-xl lg:text-2xl text-batak-brown-dark text-center">{feature.title}</CardTitle>
+                    <CardTitle className="text-lg sm:text-xl lg:text-3xl text-batak-brown-dark">{feature.title}</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-3 sm:space-y-4 flex-1 flex flex-col p-4 sm:p-6 pt-0">
                     <CardDescription className="text-left text-batak-brown-dark text-sm sm:text-base flex-1">
