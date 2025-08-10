@@ -6,10 +6,10 @@ import { Button } from '@/components/ui/button'
 
 const navigation = [
   { name: 'Beranda', href: '/', icon: Home },
-  { name: 'Galeri Karakter', href: '/gallery', icon: Book },
-  { name: 'Pusat Pembelajaran', href: '/learn', icon: GraduationCap },
-  { name: 'Penerjemah', href: '/translator', icon: Languages },
-  { name: 'Info', href: '/about', icon: Info },
+  { name: 'Galeri Karakter', href: '/galeri-karakter', icon: Book },
+  { name: 'Pusat Pembelajaran', href: '/pusat-pembelajaran', icon: GraduationCap },
+  { name: 'Transliterasi', href: '/transliterasi', icon: Languages },
+  { name: 'Info', href: '/info', icon: Info },
 ]
 
 export default function Navbar() {
