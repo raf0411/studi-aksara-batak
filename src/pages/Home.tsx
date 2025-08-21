@@ -202,10 +202,10 @@ export default function Home() {
           className="text-center mb-8 sm:mb-12"
         >
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-batak-brown-light mb-3 sm:mb-4 px-2">
-            Explore Aksara Batak
+            Jelajahi Aksara Batak
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-batak-brown-light/80 max-w-2xl mx-auto px-4">
-            Discover the features that will help you learn and appreciate this traditional script
+            Temukan fitur-fitur yang akan membantu Anda mempelajari dan menghargai budaya aksara batak ini
           </p>
         </motion.div>
 
